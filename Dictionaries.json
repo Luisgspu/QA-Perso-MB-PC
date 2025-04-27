@@ -1,0 +1,446 @@
+[
+    {
+        "test_name": "BFV1",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "IT/it"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "AT/de"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "BE/nl"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "CZ/cs"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "DK/da"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "CH/de"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "GB/en"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "GB/en"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "GB/en"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "ES/es"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "ES/es"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "ES/es"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "FR/fr"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "HU/hu"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "LU/de"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "NL/nl"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "PL/pl"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "PT/pt"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "RO/ro"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "SE/sv"
+    },
+    {
+        "test_name": "BFV1",
+        "market_code": "SK/sk"
+    },
+    {
+        "test_name": "BFV2",
+        "market_code": "SK/sk"
+    },
+    {
+        "test_name": "BFV3",
+        "market_code": "SK/sk"
+    },
+    {
+        "test_name": "Last Seen SRP",
+        "market_code": "SK/sk"
+    },
+    {
+        "test_name": "Last Seen PDP",
+        "market_code": "SK/sk"
+    },
+    {
+        "test_name": "Last Configuration Started",
+        "market_code": "SK/sk"
+    },
+    {
+        "test_name": "Last Configuration Completed",
+        "market_code": "SK/sk"
+    }
+]

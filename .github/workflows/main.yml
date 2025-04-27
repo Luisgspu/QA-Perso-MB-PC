@@ -1,0 +1,80 @@
+name: Run tests and publish Allure report
+
+on:
+  push:
+    branches:
+      - main
+      - parallel-testing
+  workflow_dispatch:
+
+env:
+  TEST_EXECUTION_ENV: dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false  # Asegúrate de no descargar submódulos
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13
+
+      # Step 3: Install Poetry and dependencies
+      - name: Install Poetry and dependencies
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          poetry install --no-root
+
+      # Step 4: Set PYTHONPATH
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)/App" >> $GITHUB_ENV
+
+      # Step 5: Run tests and generate Allure results
+      - name: Run tests scripts directly
+        if: always()
+        run: |
+          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 3 --alluredir=allure-results
+
+      # Step 6: Get Allure history
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          submodules: false
+          ref: gh-pages
+          path: gh-pages
+
+      # Step 7: Build Allure report with history
+      - name: Build Allure report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+
+      # Step 8: Deploy Allure Report and Index to GitHub Pages
+      - name: Deploy Allure Report and Index to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history # Deploy the entire allure-report directory
+          destination_dir: ${{ github.run_number }} # Deploy report to subdirectory
+          user_name: github-actions
+          user_email: github-actions@github.com
+          enable_jekyll: false
+          keep_files: true # Preserve existing files and subdirectories
+
+      

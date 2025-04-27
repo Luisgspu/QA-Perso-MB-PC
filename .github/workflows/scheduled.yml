@@ -1,0 +1,141 @@
+name: Scheduled Test Execution, 7AM GMT+5 — DEV environment — API Regression
+
+on:
+  schedule: 
+    - cron: '0 0 29 2 *'
+
+env:
+  TEST_EXECUTION_ENV: dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install Poetry and dependencies
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          poetry add pytest-rerunfailures
+          poetry install --no-root
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)/App" >> $GITHUB_ENV
+
+      # 📥 Descargar historial desde gh-pages
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+       # 🔍 Debug gh-pages directory
+      - name: Debug gh-pages directory
+        run: ls -la gh-pages || echo "No gh-pages directory found"    
+
+      # 🧠 Copiar historial a allure-results
+      - name: Copy Allure history
+        run: |
+          mkdir -p allure-results/history
+          if [ -d gh-pages/history ]; then
+            cp -r gh-pages/history/* allure-results/history || echo "No previous history"
+          fi
+
+      - name: Debug Allure history
+        run: ls -la allure-results/history || echo "No history found"
+
+      # ▶️ Ejecutar tests con Allure
+      - name: Run tests scripts directly
+        run: |
+          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 2 --alluredir=allure-results
+
+      # 🛠️ Generar reporte con historial
+      - name: Generate Allure Report
+        if : always()
+        run: |
+          npm install -g allure-commandline --save-dev
+          allure generate allure-results -o allure-report --clean
+
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - name: Upload Allure raw results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
+      # 🔄 Update index.html for latest report
+      - name: Update index.html for latest report
+        run: |
+          echo '<!DOCTYPE html>' > index.html
+          echo '<html>' >> index.html
+          echo '  <head>' >> index.html
+          echo '    <meta http-equiv="refresh" content="0; url=${{ github.run_number }}/" />' >> index.html
+          echo '    <title>Redirecting to Latest Allure Report</title>' >> index.html
+          echo '  </head>' >> index.html
+          echo '  <body>' >> index.html
+          echo '    <p>Redirecting to the latest report...</p>' >> index.html
+          echo '    <p>If you are not redirected automatically, <a href="${{ github.run_number }}/">click here</a>.</p>' >> index.html
+          echo '  </body>' >> index.html
+          echo '</html>' >> index.html
+
+      # 🚀 Deploy Allure Report to GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report
+          destination_dir: ${{ github.run_number }} # Deploy report to subdirectory
+          user_name: github-actions
+          user_email: github-actions@github.com
+          enable_jekyll: false
+          keep_files: true # Preserve existing files and subdirectories
+
+       # 🚀 Deploy Updated Index to Root of GitHub Pages
+      - name: Move index.html to temporary directory
+        if: always()
+        run: |
+          mkdir temp_deploy
+          mv index.html temp_deploy/
+
+      - name: Deploy Updated Index to Root
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: temp_deploy # Deploy only the index.html file
+          user_name: github-actions
+          user_email: github-actions@github.com
+          enable_jekyll: false
+          keep_files: true # Preserve existing files and subdirectories
+
+      
+        # 🔗 Output the Allure Report URL
+      - name: Provide Allure Report URL
+        if: always()
+        run: |
+          echo "Allure Report URL: https://${{ github.repository_owner }}.github.io/${{ github.repository }}/${{ github.run_number }}"
+
+      # 🔖 Metadata extra opcional
+      - name: Set current date as env variable
+        run: |
+          echo "event_name=${GITHUB_EVENT_NAME}" >> $GITHUB_ENV
+          echo "workflow=${GITHUB_WORKFLOW}" >> $GITHUB_ENV
+          echo "actor=${GITHUB_ACTOR}" >> $GITHUB_ENV
+          echo "run_number=${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
