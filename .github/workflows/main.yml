@@ -70,7 +70,7 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history # Deploy the entire allure-report directory
+          publish_dir: allure-report # Deploy the entire allure-report directory
           destination_dir: ${{ github.run_number }} # Deploy report to subdirectory
           user_name: github-actions
           user_email: github-actions@github.com
