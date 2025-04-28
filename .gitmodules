@@ -1,0 +1,3 @@
+[submodule "2"]
+  path = 2
+  url = https://github.com/Luisgspu/QA-App-Allure.git
