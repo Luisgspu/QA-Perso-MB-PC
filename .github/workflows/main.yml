@@ -43,15 +43,7 @@ jobs:
         run: |
           poetry run pytest QAAppAllure.py -n auto -s -v --reruns 3 --alluredir=allure-results
 
-      # Step 6: Get Allure history
-      - name: Get Allure history
-        uses: actions/checkout@v4
-        if: always()
-        continue-on-error: true
-        with:
-          submodules: false
-          ref: gh-pages
-          path: gh-pages
+    
 
       # Step 7: Build Allure report with history
       - name: Build Allure report
