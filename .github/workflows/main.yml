@@ -67,9 +67,8 @@ jobs:
           REPORT_DIR="allure-history"
           INDEX_FILE="$REPORT_DIR/index.html"
           mkdir -p $REPORT_DIR
-          chmod -R u+w $REPORT_DIR  # Asegura permisos de escritura
           echo "<html><head><title>Allure Reports</title></head><body><h1>Allure Reports</h1><ul>" > $INDEX_FILE
-          for dir in $(ls -d $REPORT_DIR/*/ | sort -r); do
+          for dir in $(find $REPORT_DIR -mindepth 1 -maxdepth 1 -type d | sort -r); do
             TIMESTAMP=$(basename $dir)
             echo "<li><a href='$TIMESTAMP/index.html'>$TIMESTAMP</a></li>" >> $INDEX_FILE
           done
