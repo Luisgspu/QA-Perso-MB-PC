@@ -61,13 +61,11 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
 
-
-
       - name: Generate index.html for historical reports
         if: always()
         continue-on-error: true
         run: |
-          REPORT_DIR="gh-pages"
+          REPORT_DIR="allure-history"
           INDEX_FILE="$REPORT_DIR/index.html"
           mkdir -p $REPORT_DIR
           echo "<html><head><title>Allure Reports</title></head><body><h1>Allure Reports</h1><ul>" > $INDEX_FILE
@@ -84,7 +82,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: gh-pages
+          PUBLISH_DIR: allure-history
 
       - name: Post the link to the report
         if: always()
