@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - master
       - rerun
       - feature/test-allure-report
   workflow_dispatch:    
@@ -79,4 +79,4 @@ jobs:
             context: 'Test report'
             state: 'success'
             sha: ${{ github.sha }}
-            target_url: https://luisgspu.github.io/QA-App-Allure/${{ github.run_number }}/index.html
+            target_url: https://luisgspu.github.io/QA-Perso/${{ github.run_number }}/index.html
