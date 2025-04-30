@@ -67,12 +67,13 @@ jobs:
           REPORT_DIR="allure-history"
           INDEX_FILE="$REPORT_DIR/index.html"
           mkdir -p $REPORT_DIR
+          chmod -R u+w $REPORT_DIR  # Asegura permisos de escritura
           echo "<html><head><title>Allure Reports</title></head><body><h1>Allure Reports</h1><ul>" > $INDEX_FILE
           for dir in $(ls -d $REPORT_DIR/*/ | sort -r); do
             TIMESTAMP=$(basename $dir)
             echo "<li><a href='$TIMESTAMP/index.html'>$TIMESTAMP</a></li>" >> $INDEX_FILE
           done
-          echo "</ul></body></html>" >> $INDEX_FILE      
+          echo "</ul></body></html>" >> $INDEX_FILE
 
       - name: Deploy report to Github Pages
         if: always()
