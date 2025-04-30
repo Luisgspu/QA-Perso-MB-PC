@@ -92,4 +92,4 @@ jobs:
           description: 'Passed'
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
-            target_url: https://luisgspu.github.io/QA-Perso/${{ github.run_number }}/index.html
+          target_url: https://luisgspu.github.io/QA-Perso/${{ github.run_number }}/index.html
