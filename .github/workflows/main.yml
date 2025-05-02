@@ -5,11 +5,6 @@ on:
     branches:
       - master
       - BFV
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
   workflow_dispatch:    
 
 permissions:
@@ -66,6 +61,8 @@ jobs:
           gh_pages: 'gh-pages-dir'
           report_dir: 'report/allure-results'
           list_dirs: true
+          branch_cleanup_enabled: false
+          max_reports: 0
 
       - name: Git Commit and Push Action
         uses: mgrybyk/git-commit-pull-push-action@v1
