@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - BFV
+      - last-configuration
   workflow_dispatch:    
 
 permissions:
