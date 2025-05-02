@@ -58,7 +58,7 @@ class BFV2Test:
             time.sleep(4)
 
         # Call the perform_configurator_actions function from ConfiguratorStarted
-        with allure.step("🌍 Performing configuration actions"):
+        with allure.step("✅ Performing configuration actions"):
             try:
                 configurator.perform_configurator_actions()
                 logging.info("✅ Successfully performed configuration actions.")
