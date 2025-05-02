@@ -1,7 +1,6 @@
 name: Allure Report Workflow
 
 on:
-  pull_request:
   push:
     branches:
       - master
@@ -77,6 +76,6 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ✅ [Allure Report](${{ steps.allure.outputs.report_url }}) | [History](https://luisgspu.github.io/QA-Perso/allure-action/${{ github.ref_name }}/allure/)
+            ${{ steps.allure.outputs.test_result_icon }} [Allure Report](${{ steps.allure.outputs.report_url }}) | ${{ steps.allure.outputs.test_result_passed }}/${{ steps.self_test.outputs.test_result_failed }}/${{ steps.self_test.outputs.test_result_total }} | [History](${{ steps.self_test.outputs.report_history_url }})
           comment_tag: allure_allure
           mode: recreate
