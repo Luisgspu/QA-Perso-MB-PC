@@ -24,7 +24,7 @@ class ConfiguratorStarted:
 
             # Locate the main frame element inside the shadow DOM
             main_frame = shadow_root.find_element(By.CSS_SELECTOR, 
-                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > nav > div > ul > li:nth-child(3) > ccwb-text > a')
+                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > nav > div > ul')
 
             # Perform actions: hover over and click the main frame
             actions = ActionChains(self.driver)
