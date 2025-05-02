@@ -5,6 +5,11 @@ on:
     branches:
       - master
       - BFV
+    pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened  
   workflow_dispatch:    
   
 
