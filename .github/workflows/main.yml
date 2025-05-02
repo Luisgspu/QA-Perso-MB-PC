@@ -1,7 +1,6 @@
 name: Allure Report Workflow
 
 on:
-  pull_request:
   push:
     branches:
       - master
