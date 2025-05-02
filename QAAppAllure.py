@@ -183,6 +183,12 @@ manual_test_cases = [
      "model_code": "C118-fl",
     },
     
+     {"test_name": "Last Configuration Started",
+     "market_code": "AT/de",
+     "model_code": "C118-fl",
+    },
+    
+    
   
     
 
