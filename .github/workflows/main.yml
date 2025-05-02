@@ -85,7 +85,7 @@ jobs:
           PUBLISH_DIR: allure-history
 
       - name: Run the action
-        uses: guibranco/github-status-action-v2@latest
+        uses: guibranco/github-status-action-v1@latest
         with: 
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Test run'
