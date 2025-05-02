@@ -5,12 +5,17 @@ on:
     branches:
       - master
       - BFV
-    pull_request:
+  pull_request:
     types:
       - opened
       - synchronize
-      - reopened  
+      - reopened
   workflow_dispatch:    
+
+permissions:
+  contents: write
+  pull-requests: write
+  statuses: write    
   
 
 permissions:
