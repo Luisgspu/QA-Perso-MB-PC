@@ -180,9 +180,16 @@ manual_test_cases = [
     
     
    
-  
-    {"test_name": "BFV1", "market_code": "GB/en", "model_code": "C236"}
-
+     
+    {
+        "test_name": "BFV1",
+        "market_code": "GB/en",
+        "model_code": "C236",
+      
+    },
+    
+     
+    
     
   
     
