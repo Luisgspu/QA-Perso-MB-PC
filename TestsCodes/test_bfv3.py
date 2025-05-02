@@ -5,7 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 import allure
-import uuid 
+import uuid
+from App.ConfigCompleted import ConfiguratorCompleted  # Import the ConfiguratorCompleted class 
 
 # Generar un UUID consistente para el test usando el nombre del test
 def generate_test_uuid(test_name):
@@ -25,27 +26,15 @@ class BFV3Test:
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.id(generate_test_uuid("run_bfv3_test"))  # Assign a consistent UUID to the main test
     def run(self):
-        test_success = False  # Flag to indicate if the test was successful
-        
-        while self.retries < self.max_retries:
+        try:
+            self.perform_bfv3_test()
 
-            # Try navigating and performing the BFV3 test logic
-            try:
-                self.perform_bfv3_test()
-
-                # If you have a test link, navigate to Salesforce URL
-                if self.test_link:
-                    self.navigate_to_salesforce()
-
-                test_success = True
-                break  # Break the loop if the test is successful
-            except Exception as e:
-                logging.error(f"❌ Error during BFV3 test: {e}")
-                self.retries += 1
-                continue
-
-        if not test_success:
-            logging.error(f"❌ BFV3 Test failed after {self.max_retries} attempts.")
+            # If you have a test link, navigate to Salesforce URL
+            if self.test_link:
+                self.navigate_to_salesforce()
+        except Exception as e:
+            logging.error(f"❌ Error during BFV3 test: {e}")
+     
     
     def expand_shadow_element(self, element):
         shadow_root = self.driver.execute_script('return arguments[0].shadowRoot', element)
@@ -55,10 +44,8 @@ class BFV3Test:
     @allure.id(generate_test_uuid("perform_bfv3_test"))  # UUID consistent for this step
     def perform_bfv3_test(self):
         """Perform the main BFV3 test logic."""
-        # Navigate to the product page
-        self.driver.get(self.urls['PRODUCT_PAGE'])
-        logging.info(f"🌍 Navigated to: {self.urls['PRODUCT_PAGE']}")
-        time.sleep(3)
+        # Create an instance of ConfiguratorCompleted
+        configurator = ConfiguratorCompleted(self.driver)
         
         # Navigate to the product page
         with allure.step(f"🌍 Navigated to: {self.urls['PRODUCT_PAGE']}"):
@@ -73,35 +60,14 @@ class BFV3Test:
             time.sleep(4)
 
         # Execute actions in CONFIGURATOR
-        with allure.step(f"✅ Executed actions in configurator"):
-            shadow_host = self.driver.find_element(By.CSS_SELECTOR, 'body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > owcc-car-configurator')
-            shadow_root = self.expand_shadow_element(shadow_host)
-            main_frame = shadow_root.find_element(By.CSS_SELECTOR, '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > nav > div > ul > li:nth-child(3) > ccwb-text > a')
-                        
-            # Hover over the main frame
-            actions = ActionChains(self.driver)
-            actions.move_to_element(main_frame).perform()
-            logging.info('✅ Hovered over Navigation main frame')
-                        
-            # Click on the main frame
-            main_frame.click()
-            logging.info('✅ Clicked on Navigation main frame')
-            time.sleep(5)
-            
-            # Click on CC Summary 
-            shadow_host = self.driver.find_element(By.CSS_SELECTOR, 'body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > owcc-car-configurator')
-            shadow_root = self.expand_shadow_element(shadow_host)
-            main_frame = shadow_root.find_element(By.CSS_SELECTOR, '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > nav > div > ul > li:last-child > ccwb-text > a')
-                                
-            # Hover over the main frame
-            actions = ActionChains(self.driver)
-            actions.move_to_element(main_frame).perform()
-            logging.info('✅ Hovered over to CC Summary')
-                                
-            # Click on the main frame
-            main_frame.click()
-            logging.info('✅ Clicked on CC Summary')
-            time.sleep(3)
+        with allure.step("✅ Performing configuration actions"):
+            try:
+                configurator.perform_configurator_actions()
+                logging.info("✅ Successfully performed configuration actions.")
+            except Exception as e:
+                logging.error(f"❌ Error performing configuration actions: {e}")
+                allure.attach(f"Error: {e}", name="Configuration Actions Error", attachment_type=allure.attachment_type.TEXT)
+                raise  # Re-raise the exception to handle it at a higher level
             
         # Navigate back to the home page  
         with allure.step(f"🌍 Navigated back to: {self.urls['HOME_PAGE']}"):
