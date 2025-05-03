@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - last-configuration
+      - last-configuration-started
   workflow_dispatch:    
 
 permissions:
