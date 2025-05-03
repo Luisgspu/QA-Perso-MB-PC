@@ -180,7 +180,8 @@ manual_test_cases = [
     
     
     
-    {"test_name": "Last Configuration Started", "market_code": "SE/sv", "model_code": "C236"}
+    {"test_name": "Last Configuration Started", "market_code": "SE/sv", "model_code": "C236"},
+    {"test_name": "Last Configuration Started", "market_code": "SE/sv", "model_code": "C118-fl"}
     
   
     
