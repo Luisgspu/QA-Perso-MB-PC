@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - BFV2
+      - BFV3
   workflow_dispatch:    
 
 permissions:
