@@ -25,39 +25,52 @@ class LCStartedTest:
     def run(self):
         """Executes the Last Configuration Started test."""
         try:
-            # Create an instance of ConfiguratorStarted
-            configurator = ConfiguratorStarted(self.driver)
-
-            # Navigate to the configurator and perform actions
+           
+            # Execute the main logic of the Last Configuration Started test
+            self.perform_LCStarted_test()
+                 
+            # If there is a test link, navigate to Salesforce
+            if self.test_link:
+                self.navigate_to_salesforce()
+        except Exception as e:
+            logging.error(f"❌ Error during the BFV2 test: {e}")
+            allure.attach(f"Error: {e}", name="Test Error", attachment_type=allure.attachment_type.TEXT)        
+    
+    @allure.step("Perform Last Configuration Started Test Logic")
+    @allure.id(generate_test_uuid("LCCompleted_test"))  # UUID consistente para este paso
+    def perform_LCStarted_test(self):
+        # Create an instance of ConfiguratorStarted
+        configurator = ConfiguratorStarted(self.driver)
+            
+        """Perform the main Last Configuration Started test logic."""
+        # Create an instance of ConfiguratorStarted
+        configurator = ConfiguratorStarted(self.driver)        
+        try:
+             # Navigate to the configurator and perform actions
             with allure.step(f"🌍 Navigated to: {self.urls['CONFIGURATOR']}"):
                 self.driver.get(self.urls['CONFIGURATOR'])
                 logging.info(f"🌍 Navigating to the configurator: {self.urls['CONFIGURATOR']}")
                 WebDriverWait(self.driver, 15).until(lambda driver: driver.execute_script("return document.readyState") == "complete")
                 time.sleep(3)
 
-            with allure.step("✅ Performed configurator actions"):
-                # Call the perform_configurator_actions function from ConfiguratorStarted
+            # Call the perform_configurator_actions function from ConfiguratorStarted
+            with allure.step("✅ Performing configuration actions"):
                 try:
                     configurator.perform_configurator_actions()
-                    logging.info("✅ Successfully performed actions in the configurator.")
+                    logging.info("✅ Successfully performed configuration actions.")
                 except Exception as e:
-                    logging.error(f"❌ Error performing actions in the configurator: {e}")
-                    allure.attach(f"Error: {e}", name="Configurator Actions Error", attachment_type=allure.attachment_type.TEXT)
-                    raise
-
+                    logging.error(f"❌ Error performing configuration actions: {e}")
+                    allure.attach(f"Error: {e}", name="Configuration Actions Error", attachment_type=allure.attachment_type.TEXT)
+                    raise  # Re-raise the exception to handle it at a higher level
+                
             # Navigate back to the home page
             with allure.step(f"🌍 Navigating back to: {self.urls['HOME_PAGE']}"):
                 self.driver.get(self.urls['HOME_PAGE'])
                 logging.info(f"🌍 Navigating back to: {self.urls['HOME_PAGE']}")
                 WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-
-            # If there is a test link, navigate to Salesforce
-            if self.test_link:
-                self.navigate_to_salesforce()
-
+                        
         except Exception as e:
-            logging.error(f"❌ Error during the Last Configuration Started test: {e}")
-            allure.attach(f"Error: {e}", name="Test Error", attachment_type=allure.attachment_type.TEXT)
+            logging.error(f"❌ Error in configurator: {e}")        
 
     @allure.step("Navigate to Salesforce URL")
     @allure.id(generate_test_uuid("navigate_to_salesforce"))  # Consistent UUID for this step
