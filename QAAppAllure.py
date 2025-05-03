@@ -182,6 +182,11 @@ manual_test_cases = [
      "market_code": "IT/it",
     },
     
+    {"test_name": "Last Configuration Started",
+     "market_code": "IT/it",
+    },
+    
+    
     
     
     
