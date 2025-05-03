@@ -34,6 +34,46 @@ def verify_personalization_and_capture(
     Verifies the personalized image and captures XHR responses and screenshots.
     """
     try:
+        # Check userGroup before verifying the personalized image
+        with allure.step("🔍 Checking userGroup in XHR responses..."):
+            try:
+                if driver.session_id:
+                    logging.info(f"ℹ️ Setting campaign name substring to: {test_name}")
+                    xhr_capturer.set_campaign_name_substring(test_name)
+                    logging.info("✅ Campaign name substring set successfully.")
+                    
+                    # Capture XHR responses
+                    xhr_capturer.capture_responses()
+                    xhr_data = xhr_capturer.get_captured_data()
+                    logging.info(f"ℹ️ Captured XHR data: {xhr_data}")
+                    
+                    # Check userGroup for each campaign response
+                    for response in xhr_data:
+                        campaigns = response.get("body", {}).get("campaignResponses", [])
+                        for campaign in campaigns:
+                            campaign_name = campaign.get("campaignName", "Unknown Campaign")
+                            user_group = campaign.get("userGroup", "Unknown UserGroup")
+                            experience_Name = campaign.get("experienceName", "Unknown Experience")
+                            
+                            # Check if experienceName contains "Control Group" or userGroup is "control"
+                            if "Control Group" in experience_Name or user_group.lower() == "control":  
+                                with allure.step(f"❌ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure."):
+                                    logging.info(f"ℹ️ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure.")
+                                
+                                # Reset retries to ensure the next attempt is still the same number
+                                retries -= 1
+                                return False  # Retry the test without marking success or failure
+                            else:
+                                with allure.step(f"✅ Campaign '{campaign_name}' has userGroup: {user_group} and experienceName: {experience_Name}."):
+                                    logging.info(f"✅ Campaign '{campaign_name}' has userGroup: {user_group} and experienceName: {experience_Name}.")
+                else:
+                    logging.warning("⚠️ WebDriver session is not active. Skipping XHR response capture.")
+            except Exception as e:
+                logging.error(f"❌ Failed to check userGroup in XHR responses: {e}")
+                allure.attach(f"❌ Failed to check userGroup in XHR responses: {e}", name="XHR Error", attachment_type=allure.attachment_type.TEXT)
+                retries -= 1  # Reset retries in case of an error
+                return False  # Retry the test in case of an error
+
         # Verify the personalized image
         with allure.step("🔍 Verifying personalized image..."):
             try:
