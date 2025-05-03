@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   test:
-    if: ${{ github.event_name == 'push' && !startsWith(github.ref, 'refs/pull/') }}
+    if: ${{ !(github.event_name == 'push' && github.event.pull_request) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
