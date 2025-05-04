@@ -190,8 +190,8 @@ manual_test_cases = [
     
     
    
-    {"test_name": "Last Configuration Started", "market_code": "ES/es"},
-    
+    {"test_name": "Last Configuration Started", "market_code": "ES/es", "model_code": " W214"},
+
     
   
     
