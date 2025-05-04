@@ -178,6 +178,19 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 
     if not test_success:
         failure_message = f"❌ Test '{test_name}' failed."
+
+        # Check for specific failure reasons and categorize them
+        if "Control Group Fail" in failure_message:
+            allure.dynamic.issue("Control Group Fail")
+            allure.dynamic.severity(allure.severity_level.CRITICAL)  # Mark as critical severity
+        elif "Wrong Personalization Image" in failure_message:
+            allure.dynamic.issue("Wrong Personalization Image")
+            allure.dynamic.severity(allure.severity_level.BLOCKER)  # Mark as blocker severity
+        else:
+            allure.dynamic.issue("General Test Failure")
+            allure.dynamic.severity(allure.severity_level.NORMAL)  # Default severity
+
+        # Log and attach the failure message
         logging.error(failure_message)
         allure.attach(failure_message, name="Test Failure", attachment_type=allure.attachment_type.TEXT)
         pytest.fail(failure_message)
