@@ -1,7 +1,11 @@
 name: Allure Report Workflow
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - BFV1
+  workflow_dispatch:    
 
 permissions:
   contents: write

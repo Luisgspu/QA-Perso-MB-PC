@@ -1,5 +1,5 @@
 # .github/workflows/manual.yml
-name: Manual Trigger Workflow BFV1
+name: Manual Trigger Workflow 
 
 on:
   workflow_dispatch:
