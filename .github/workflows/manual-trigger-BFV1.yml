@@ -1,0 +1,80 @@
+# .github/workflows/manual.yml
+name: Manual Trigger Workflow BFV1
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  statuses: write    
+  
+# Allow only one job per PR or branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true # cancel jobs in progress
+
+jobs:
+  test:
+    if: ${{ !(github.event_name == 'push' && github.event.pull_request) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13
+
+      - name: Install Poetry and dependencies
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          poetry add pytest-rerunfailures
+          poetry install --no-root
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)/App" >> $GITHUB_ENV    
+
+      - name: Run tests scripts directly
+        run: |
+          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 5 --alluredir=report/allure-results
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages # branch name
+          path: gh-pages-dir # checkout path
+
+      - name: Allure Report Action
+        uses: mgrybyk/allure-report-branch-action@v1
+        if: always()
+        continue-on-error: true
+        id: allure
+        with:
+          report_id: 'allure'
+          gh_pages: 'gh-pages-dir'
+          report_dir: 'report/allure-results'
+          list_dirs: true
+          branch_cleanup_enabled: false
+          max_reports: 0
+
+      - name: Git Commit and Push Action
+        uses: mgrybyk/git-commit-pull-push-action@v1
+        if: always()
+        with:
+          repository: gh-pages-dir
+          branch: gh-pages
+
+      - name: Comment PR with Allure Report link
+        if: ${{ always() && github.event_name == 'pull_request' && steps.allure.outputs.report_url }}
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ${{ steps.allure.outputs.test_result_icon }} [Allure Report](${{ steps.allure.outputs.report_url }}) | ${{ steps.allure.outputs.test_result_passed }}/${{ steps.allure.outputs.test_result_failed }}/${{ steps.allure.outputs.test_result_total }} | [History](${{ steps.allure.outputs.report_history_url }})
+          comment_tag: allure_allure
+          mode: recreate
