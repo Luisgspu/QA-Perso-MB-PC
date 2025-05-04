@@ -180,8 +180,27 @@ manual_test_cases = [
     
     
     
-    {"test_name": "Last Configuration Started", "market_code": "SE/sv", "model_code": "C236"},
-    {"test_name": "Last Configuration Started", "market_code": "SE/sv", "model_code": "C118-fl"}
+        {"test_name": "Last Configuration Started", "market_code": "AT/de"},
+    {"test_name": "Last Configuration Started", "market_code": "BE/nl"},
+    {"test_name": "Last Configuration Started", "market_code": "BE/fr"},
+    {"test_name": "Last Configuration Started", "market_code": "CH/de"},
+    {"test_name": "Last Configuration Started", "market_code": "CH/fr"},
+    {"test_name": "Last Configuration Started", "market_code": "CH/it"},
+    {"test_name": "Last Configuration Started", "market_code": "GB/en"},
+    {"test_name": "Last Configuration Started", "market_code": "CZ/cs"},
+    {"test_name": "Last Configuration Started", "market_code": "DK/da"},
+    {"test_name": "Last Configuration Started", "market_code": "ES/es"},
+    {"test_name": "Last Configuration Started", "market_code": "FR/fr"},
+    {"test_name": "Last Configuration Started", "market_code": "HU/hu"},
+    {"test_name": "Last Configuration Started", "market_code": "IT/it"},
+    {"test_name": "Last Configuration Started", "market_code": "LU/de"},
+    {"test_name": "Last Configuration Started", "market_code": "LU/fr"},
+    {"test_name": "Last Configuration Started", "market_code": "NL/nl"},
+    {"test_name": "Last Configuration Started", "market_code": "PL/pl"},
+    {"test_name": "Last Configuration Started", "market_code": "PT/pt"},
+    {"test_name": "Last Configuration Started", "market_code": "RO/ro"},
+    {"test_name": "Last Configuration Started", "market_code": "SE/sv"},
+    {"test_name": "Last Configuration Started", "market_code": "SK/sk"}
     
   
     
