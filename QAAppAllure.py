@@ -179,16 +179,27 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
     if not test_success:
         failure_message = f"❌ Test '{test_name}' failed."
 
-        # Check for specific failure reasons and categorize them
+        # Dynamically determine the failure reason
         if "Control Group Fail" in failure_message:
+            # Categorize as Control Group Fail
             allure.dynamic.issue("Control Group Fail")
             allure.dynamic.severity(allure.severity_level.CRITICAL)  # Mark as critical severity
+            logging.error("❌ Categorized as Control Group Fail.")
         elif "Wrong Personalization Image" in failure_message:
+            # Categorize as Wrong Personalization Image
             allure.dynamic.issue("Wrong Personalization Image")
             allure.dynamic.severity(allure.severity_level.BLOCKER)  # Mark as blocker severity
+            logging.error("❌ Categorized as Wrong Personalization Image.")
+        elif "Cookie Acceptance Failure" in failure_message:
+            # Categorize as Cookie Acceptance Failure
+            allure.dynamic.issue("Cookie Acceptance Failure")
+            allure.dynamic.severity(allure.severity_level.MINOR)  # Mark as minor severity
+            logging.error("❌ Categorized as Cookie Acceptance Failure.")
         else:
+            # General Test Failure
             allure.dynamic.issue("General Test Failure")
             allure.dynamic.severity(allure.severity_level.NORMAL)  # Default severity
+            logging.error("❌ Categorized as General Test Failure.")
 
         # Log and attach the failure message
         logging.error(failure_message)
