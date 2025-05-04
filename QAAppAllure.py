@@ -153,7 +153,16 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
         """)
         allure.step("✅ Clicked on accept cookies.")
     except Exception as ex:
-        allure.attach("❌ Cookie banner not found or already accepted.")
+        # Attach the error to Allure
+        allure.attach("❌ Cookie banner not found or already accepted.", name="Cookie Acceptance Error", attachment_type=allure.attachment_type.TEXT)
+        
+        # Add a custom defect category
+        allure.dynamic.label("defect", "Cookie Acceptance Failure")
+        allure.dynamic.tag("Cookie Issue")
+        
+        # Log the error
+        logging.error("❌ Failed to accept cookies.")
+        pytest.fail("Failed to accept cookies.")
 
     # Execute test
     if test_name in test_mapping:
@@ -180,27 +189,9 @@ manual_test_cases = [
     
     
     
-        {"test_name": "Last Configuration Started", "market_code": "AT/de"},
-    {"test_name": "Last Configuration Started", "market_code": "BE/nl"},
-    {"test_name": "Last Configuration Started", "market_code": "BE/fr"},
-    {"test_name": "Last Configuration Started", "market_code": "CH/de"},
-    {"test_name": "Last Configuration Started", "market_code": "CH/fr"},
-    {"test_name": "Last Configuration Started", "market_code": "CH/it"},
-    {"test_name": "Last Configuration Started", "market_code": "GB/en"},
-    {"test_name": "Last Configuration Started", "market_code": "CZ/cs"},
-    {"test_name": "Last Configuration Started", "market_code": "DK/da"},
+   
     {"test_name": "Last Configuration Started", "market_code": "ES/es"},
-    {"test_name": "Last Configuration Started", "market_code": "FR/fr"},
-    {"test_name": "Last Configuration Started", "market_code": "HU/hu"},
-    {"test_name": "Last Configuration Started", "market_code": "IT/it"},
-    {"test_name": "Last Configuration Started", "market_code": "LU/de"},
-    {"test_name": "Last Configuration Started", "market_code": "LU/fr"},
-    {"test_name": "Last Configuration Started", "market_code": "NL/nl"},
-    {"test_name": "Last Configuration Started", "market_code": "PL/pl"},
-    {"test_name": "Last Configuration Started", "market_code": "PT/pt"},
-    {"test_name": "Last Configuration Started", "market_code": "RO/ro"},
-    {"test_name": "Last Configuration Started", "market_code": "SE/sv"},
-    {"test_name": "Last Configuration Started", "market_code": "SK/sk"}
+    
     
   
     
