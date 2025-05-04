@@ -1,8 +1,7 @@
 name: Allure Report Workflow
 
 on:
-  
-  workflow_dispatch:    
+  workflow_dispatch:
 
 permissions:
   contents: write
