@@ -36,13 +36,6 @@ jobs:
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)/App" >> $GITHUB_ENV    
 
-      - name: Copy categories.json to Allure report
-        run: |
-          mkdir -p report/allure-results
-          cp path/to/categories.json report/allure-results/
-        # Replace `path/to/categories.json` with the actual path to your `categories.json` file
-  
-
       - name: Run tests scripts directly
         run: |
           poetry run pytest QAAppAllure.py -n auto -s -v --reruns 5 --alluredir=report/allure-results
