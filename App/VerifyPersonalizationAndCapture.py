@@ -55,8 +55,7 @@ def verify_personalization_and_capture(
                             user_group = campaign.get("userGroup", "Unknown UserGroup")
                             experience_Name = campaign.get("experienceName", "Unknown Experience")
                             
-                    # Check if experienceName contains "Control Group" or userGroup is "control"
-                            
+                            # Check if experienceName contains "Control Group" or userGroup is "control"
                             if "Control Group" in experience_Name or user_group.lower() == "control":  
                                 with allure.step(f"❌ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure."):
                                     logging.info(f"ℹ️ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure.")
@@ -67,7 +66,6 @@ def verify_personalization_and_capture(
                             else:
                                 with allure.step(f"✅ Campaign '{campaign_name}' has userGroup: {user_group} and experienceName: {experience_Name}."):
                                     logging.info(f"✅ Campaign '{campaign_name}' has userGroup: {user_group} and experienceName: {experience_Name}.")
-                                
                 else:
                     logging.warning("⚠️ WebDriver session is not active. Skipping XHR response capture.")
             except Exception as e:
@@ -75,7 +73,7 @@ def verify_personalization_and_capture(
                 allure.attach(f"❌ Failed to check userGroup in XHR responses: {e}", name="XHR Error", attachment_type=allure.attachment_type.TEXT)
                 retries -= 1  # Reset retries in case of an error
                 return False  # Retry the test in case of an error
-            
+
         # Verify the personalized image
         with allure.step("🔍 Verifying personalized image..."):
             try:
@@ -85,18 +83,36 @@ def verify_personalization_and_capture(
                 else:
                     expected_src = "/images/dynamic/europe/"
 
+                # Dynamically determine the selector based on the market
+                if ".co.uk" in urls['HOME_PAGE']:
+                    selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > div:nth-child(14) > div"
+                else:
+                    selector = "[data-component-name='hp-campaigns']"
+                
+                # Scroll to the element if the market is UK
+                if ".co.uk" in urls['HOME_PAGE']:
+                    with allure.step("📜 Scrolling to the UK-specific element..."):
+                        try:
+                            element_to_scroll = driver.find_element(By.CSS_SELECTOR, selector)
+                            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element_to_scroll)
+                            logging.info(f"✅ Scrolled to element: {selector}")
+                        except Exception as e:
+                            logging.error(f"❌ Failed to scroll to element: {selector}. Error: {e}")
+                            allure.attach(f"Error: {e}", name="Scroll Error", attachment_type=allure.attachment_type.TEXT)
+                            return False    
+
                 # Wait for the images to load and check if any match the expected src
                 WebDriverWait(driver, 10).until(
                     lambda d: d.execute_script(f"""
-                        const imgs = document.querySelectorAll("[data-component-name='hp-campaigns'] img");
+                        const imgs = document.querySelectorAll("{selector} img");
                         return Array.from(imgs).some(img => img.complete && img.naturalHeight !== 0 && img.src.includes("{expected_src}"));
                     """)
                 )
                 test_success = True
 
                 # Attach the found src to the Allure report
-                found_srcs = driver.execute_script("""
-                    const imgs = document.querySelectorAll("[data-component-name='hp-campaigns'] img");
+                found_srcs = driver.execute_script(f"""
+                    const imgs = document.querySelectorAll("{selector} img");
                     return Array.from(imgs).map(img => img.src);
                 """)
                 matching_src = next((src for src in found_srcs if expected_src in src), "No matching image found")
@@ -115,15 +131,14 @@ def verify_personalization_and_capture(
         # Debug campaign images
         with allure.step("🔍 Debugging campaign images..."):
             try:
-                imgs = driver.execute_script("""
-                    return Array.from(document.querySelectorAll("[data-component-name='hp-campaigns'] img")).map(img => img.src);
+                imgs = driver.execute_script(f"""
+                    return Array.from(document.querySelectorAll("{selector} img")).map(img => img.src);
                 """)
                 logging.info(f"🖼️ Found campaign images: {imgs}")
                 allure.attach("\n".join(imgs), name="Campaign Images", attachment_type=allure.attachment_type.TEXT)
             except Exception as e:
                 logging.error(f"❌ Error extracting image URLs: {e}")
                 allure.attach(f"Error extracting image URLs: {e}", name="Image Debug Error", attachment_type=allure.attachment_type.TEXT)
-
 
         # Capture screenshot
         logging.info("📸 Taking screenshot...")
