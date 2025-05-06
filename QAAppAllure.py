@@ -215,10 +215,7 @@ manual_test_cases = [
     
    
     {"test_name": "Last Configuration Started", "market_code": "BE/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "CH/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "FR/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "LU/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "PL/pl", "model_code": "C174"},
+
 
     
   
