@@ -214,11 +214,11 @@ manual_test_cases = [
     
     
    
-    {"test_name": "Last Configuration Started", "market_code": "ES/es", "model_code": "W214"},
-    {"test_name": "Last Configuration Started", "market_code": "ES/es", "model_code": "C236"},
-    {"test_name": "Last Configuration Started", "market_code": "ES/es", "model_code": "S214"},
-    {"test_name": "Last Configuration Started", "market_code": "ES/es", "model_code": "S206"},
-
+    {"test_name": "Last Configuration Completed", "market_code": "BE/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "CH/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "FR/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "LU/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "PL/pl", "model_code": "C174"},
 
     
   
