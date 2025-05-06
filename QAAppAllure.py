@@ -214,7 +214,7 @@ manual_test_cases = [
     
     
    
-    {"test_name": "Last Configuration Started", "market_code": "BE/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "AT", "model_code": "C174"},
 
 
     
