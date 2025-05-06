@@ -41,7 +41,7 @@ from TestsCodes import test_bfv1
 from TestsCodes import test_bfv2
 from TestsCodes import test_bfv3
 from TestsCodes import test_LastConfigStarted
-from TestsCodes import test_LastConfigCompleted
+from TestsCodes import test_LastConfigStarted
 from TestsCodes import test_LastSeenSRP
 from TestsCodes import test_LastSeenPDP
 from TestsCodes import PersonalizedCTA1_test
@@ -55,7 +55,7 @@ test_mapping = {
     "BFV2": test_bfv2.BFV2Test,
     "BFV3": test_bfv3.BFV3Test,
     "Last Configuration Started": test_LastConfigStarted.LCStartedTest,
-    "Last Configuration Completed": test_LastConfigCompleted.LCCompletedTest,
+    "Last Configuration Started": test_LastConfigStarted.LCStartedTest,
     "Last Seen SRP": test_LastSeenSRP.LSeenSRPTest,
     "Last Seen PDP": test_LastSeenPDP.LSeenPDPTest,
     "Personalized CTA 1": PersonalizedCTA1_test.PersonalizedCTA1Test,
@@ -114,7 +114,7 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 
     # BFV Logic
     if 'CONFIGURATOR' not in urls or not urls['CONFIGURATOR']:
-        if test_name in ["BFV1", "BFV2", "BFV3", "Last Configuration Started", "Last Configuration Completed"]:
+        if test_name in ["BFV1", "BFV2", "BFV3", "Last Configuration Started", "Last Configuration Started"]:
             message = f"❌ Skipping test '{test_name}' due to lack of CONFIGURATOR URL."
             logging.warning(message)
             allure.dynamic.description(message)
@@ -168,7 +168,7 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
     if test_name in test_mapping:
         test_instance = test_mapping[test_name](driver, urls)
         test_instance.run()
-        allure.step(f"✅ {test_name} test completed.")
+        allure.step(f"✅ {test_name} test Started.")
         time.sleep(4)
 
         test_success = verify_personalization_and_capture(
@@ -214,11 +214,11 @@ manual_test_cases = [
     
     
    
-    {"test_name": "Last Configuration Completed", "market_code": "BE/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Completed", "market_code": "CH/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Completed", "market_code": "FR/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Completed", "market_code": "LU/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Completed", "market_code": "PL/pl", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "BE/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "CH/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "FR/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "LU/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "PL/pl", "model_code": "C174"},
 
     
   
