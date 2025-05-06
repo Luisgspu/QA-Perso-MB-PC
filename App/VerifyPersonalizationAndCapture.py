@@ -60,6 +60,10 @@ def verify_personalization_and_capture(
                                 with allure.step(f"❌ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure."):
                                     logging.info(f"ℹ️ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure.")
                                 
+                                # Add a custom defect category for Control Group Fail
+                                allure.dynamic.label("defect", "Control Group Fail")
+                                allure.dynamic.tag("Control Group Issue")
+                                
                                 # Reset retries to ensure the next attempt is still the same number
                                 retries -= 1
                                 return False  # Retry the test without marking success or failure
@@ -125,6 +129,11 @@ def verify_personalization_and_capture(
                 test_success = False
                 with allure.step(f"❌ Image not found in the specified selector. Error: {e}"):
                     logging.error(f"❌ Image not found in the specified selector. Error: {e}")
+                    
+                    # Add a custom defect category for Wrong Personalization Image
+                    allure.dynamic.label("defect", "Wrong Personalization Image")
+                    allure.dynamic.tag("Personalization Issue")
+                                
                     allure.attach(f"Expected src: {expected_src}", name="Expected Image Source", attachment_type=allure.attachment_type.TEXT)
                     allure.attach(f"Error: {e}", name="Image Verification Error", attachment_type=allure.attachment_type.TEXT)
 

@@ -153,7 +153,16 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
         """)
         allure.step("✅ Clicked on accept cookies.")
     except Exception as ex:
-        allure.attach("❌ Cookie banner not found or already accepted.")
+        # Attach the error to Allure
+        allure.attach("❌ Cookie banner not found or already accepted.", name="Cookie Acceptance Error", attachment_type=allure.attachment_type.TEXT)
+        
+        # Add a custom defect category
+        allure.dynamic.label("defect", "Cookie Acceptance Failure")
+        allure.dynamic.tag("Cookie Issue")
+        
+        # Log the error
+        logging.error("❌ Failed to accept cookies.")
+        pytest.fail("Failed to accept cookies.")
 
     # Execute test
     if test_name in test_mapping:
@@ -169,6 +178,30 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 
     if not test_success:
         failure_message = f"❌ Test '{test_name}' failed."
+
+        # Dynamically determine the failure reason
+        if "Control Group Fail" in failure_message:
+            # Categorize as Control Group Fail
+            allure.dynamic.issue("Control Group Fail")
+            allure.dynamic.severity(allure.severity_level.CRITICAL)  # Mark as critical severity
+            logging.error("❌ Categorized as Control Group Fail.")
+        elif "Wrong Personalization Image" in failure_message:
+            # Categorize as Wrong Personalization Image
+            allure.dynamic.issue("Wrong Personalization Image")
+            allure.dynamic.severity(allure.severity_level.BLOCKER)  # Mark as blocker severity
+            logging.error("❌ Categorized as Wrong Personalization Image.")
+        elif "Cookie Acceptance Failure" in failure_message:
+            # Categorize as Cookie Acceptance Failure
+            allure.dynamic.issue("Cookie Acceptance Failure")
+            allure.dynamic.severity(allure.severity_level.MINOR)  # Mark as minor severity
+            logging.error("❌ Categorized as Cookie Acceptance Failure.")
+        else:
+            # General Test Failure
+            allure.dynamic.issue("General Test Failure")
+            allure.dynamic.severity(allure.severity_level.NORMAL)  # Default severity
+            logging.error("❌ Categorized as General Test Failure.")
+
+        # Log and attach the failure message
         logging.error(failure_message)
         allure.attach(failure_message, name="Test Failure", attachment_type=allure.attachment_type.TEXT)
         pytest.fail(failure_message)
@@ -178,14 +211,17 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 # Manually defined test cases
 manual_test_cases = [
     
+    
+    
+   
+    {"test_name": "Last Configuration Completed", "market_code": "BE/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "CH/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "FR/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "LU/fr", "model_code": "C174"},
+    {"test_name": "Last Configuration Completed", "market_code": "PL/pl", "model_code": "C174"},
 
-
-    {"test_name": "Last Configuration Started", "market_code": "BE/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "CH/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "FR/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "LU/fr", "model_code": "C174"},
-    {"test_name": "Last Configuration Started", "market_code": "PL/pl", "model_code": "C174"},
-
+    
+  
     
     
 ]
