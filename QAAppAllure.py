@@ -135,27 +135,28 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
             pytest.skip(message)
 
     try:
-        driver.get(urls['HOME_PAGE'])
-        WebDriverWait(driver, 15).until(lambda d: d.execute_script("return document.readyState") == "complete")
-        logging.info(f"🌍 Navigated to: {urls['HOME_PAGE']}")
+        with allure.step(f"🌍 Navigating to HOME_PAGE: {urls['HOME_PAGE']}"):
+            driver.get(urls['HOME_PAGE'])
+            WebDriverWait(driver, 15).until(lambda d: d.execute_script("return document.readyState") == "complete")
+            logging.info(f"🌍 Navigated to: {urls['HOME_PAGE']}")
     except Exception as e:
         logging.error(f"❌ Error navigating to HOME_PAGE: {e}")
         pytest.fail(f"Error navigating to HOME_PAGE: {e}")
 
     try:
-        WebDriverWait(driver, 6).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "cmm-cookie-banner"))
-        )
-        time.sleep(2)
-        logging.info("✅ Cookie banner detected.")
-        driver.execute_script("""
-            document.querySelector("cmm-cookie-banner").shadowRoot.querySelector("wb7-button.button--accept-all").click();
-        """)
-        allure.step("✅ Clicked on accept cookies.")
+        with allure.step("✅ Detecting and accepting cookies"):
+            WebDriverWait(driver, 6).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "cmm-cookie-banner"))
+            )
+            time.sleep(2)
+            logging.info("✅ Cookie banner detected.")
+            driver.execute_script("""
+                document.querySelector("cmm-cookie-banner").shadowRoot.querySelector("wb7-button.button--accept-all").click();
+            """)
+            logging.info("✅ Clicked on accept cookies.")
     except Exception as ex:
         # Attach the error to Allure
         allure.attach("❌ Cookie banner not found or already accepted.", name="Cookie Acceptance Error", attachment_type=allure.attachment_type.TEXT)
-        
         # Add a custom defect category
         allure.dynamic.label("defect", "Cookie Acceptance Failure")
         allure.dynamic.tag("Cookie Issue")
@@ -214,7 +215,17 @@ manual_test_cases = [
     
     
    
-    {"test_name": "Last Configuration Started", "market_code": "AT", "model_code": "C174"},
+    {"test_name": "Last Configuration Started", "market_code": "AT/de", "model_code": "C174"},
+        {"test_name": "Last Configuration Started", "market_code": "LU/de", "model_code": "C174"},
+            {"test_name": "Last Configuration Started", "market_code": "CH/de", "model_code": "C174"},
+
+    {"test_name": "Last Configuration Started", "market_code": "CH/fr", "model_code": "C174"},
+
+    {"test_name": "Last Configuration Started", "market_code": "NL/nl", "model_code": "C174"},
+
+    {"test_name": "Last Configuration Started", "market_code": "BE/fr", "model_code": "C174"},
+    
+    
 
 
     

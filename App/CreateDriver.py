@@ -1,12 +1,13 @@
 from selenium import webdriver
 import logging
 import pytest
+import time
 
 
 def build_chrome_options():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
-    options.add_argument("--disable-gpu")
+    options.add_argument("--headless=new")  
+    options.add_argument("--disable-gpu") 
     options.add_argument("--enable-webgl")
     options.add_argument("--incognito")
     options.add_argument("--disable-dev-shm-usage")
@@ -26,6 +27,18 @@ def build_chrome_options():
 def create_driver(options):
     driver = webdriver.Chrome(options=options)
     driver.options = options  # Guardamos las opciones para reusarlas en el restart
+    """
+    # Add custom HTTP headers using Chrome DevTools Protocol (CDP)
+    try:
+        driver.execute_cdp_cmd(
+            "Network.setExtraHTTPHeaders",
+            {"headers": {"traffic_type": "internal"}}
+        )
+        logging.info("✅ Custom HTTP header 'traffic_type: internal' added to all requests.")
+        time.sleep(2)  # Espera para asegurar que el header se aplica correctamente
+    except Exception as e:
+        logging.error(f"❌ Failed to set custom HTTP headers: {e}")
+    """
     driver.fullscreen_window()
     return driver
 
