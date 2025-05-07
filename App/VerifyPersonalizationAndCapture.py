@@ -58,7 +58,7 @@ def verify_personalization_and_capture(
                             
                             # Check if experienceName contains "Control Group" or userGroup is "control"
                             if "Control Group" in experience_Name or user_group.lower() == "control":  
-                                with allure.step(f"❌ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure."):
+                                with allure.step(f"❌ Campaign '{campaign_name}' is in the Control Group. Retrying test."):
                                     message = f"❌ Test '{test_name}' failed because the campaign was identified as part of the Control Group."
                                     pytest.fail(message)
                                     logging.info(f"ℹ️ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure.")
