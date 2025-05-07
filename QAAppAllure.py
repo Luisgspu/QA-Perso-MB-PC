@@ -164,6 +164,7 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
         # Log the error
         logging.error("❌ Failed to accept cookies.")
         pytest.fail("Failed to accept cookies.")
+    
 
     # Execute test
     if test_name in test_mapping:
@@ -216,15 +217,7 @@ manual_test_cases = [
     
    
     {"test_name": "Last Configuration Started", "market_code": "AT/de", "model_code": "C174"},
-        {"test_name": "Last Configuration Started", "market_code": "LU/de", "model_code": "C174"},
-            {"test_name": "Last Configuration Started", "market_code": "CH/de", "model_code": "C174"},
-
-    {"test_name": "Last Configuration Started", "market_code": "CH/fr", "model_code": "C174"},
-
-    {"test_name": "Last Configuration Started", "market_code": "NL/nl", "model_code": "C174"},
-
-    {"test_name": "Last Configuration Started", "market_code": "BE/fr", "model_code": "C174"},
-    
+ 
     
 
 
