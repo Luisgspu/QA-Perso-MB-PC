@@ -129,9 +129,22 @@ def verify_personalization_and_capture(
                 with allure.step(f"✅ Personalized image with expected src '{expected_src}' was applied correctly."):
                     logging.info(f"✅ Found matching image with src: {matching_src}")
             except Exception as e:
+                # Capture screenshot
+                logging.info("📸 Taking screenshot...")
+                screenshot_handler = ScreenshotHandler(driver, screenshot_dir)
+                screenshot_path = os.path.join(screenshot_dir, f"{test_name}_attempt_{retries + 1}.png")
+
+                try:
+                    screenshot_handler.scroll_and_capture_screenshot(urls, test_name, model_name, body_type, retries, test_success)
+                    logging.info(f"✅ Screenshot saved at: {screenshot_path}")
+
+                    # Attach the screenshot to the Allure report
+                    attach_screenshot_to_allure(screenshot_path)
+                except Exception as e:
+                    logging.error(f"❌ Failed to capture or attach screenshot: {e}")
                 test_success = False
-                message = f"❌ Test '{test_name}' failed because the personalized image did not match the expected source."
-                pytest.fail(message)
+                message = f"❌ Test '{test_name}' failed due to image verification error: {e}"
+                pytest.fail(f"❌ Test '{test_name}' failed due to image verification error: {e}")
                 with allure.step(f"❌ Image not found in the specified selector. Error: {e}"):
                     
                     logging.error(f"❌ Image not found in the specified selector. Error: {e}")

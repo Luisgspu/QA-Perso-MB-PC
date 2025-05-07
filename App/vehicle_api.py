@@ -2,7 +2,7 @@ import pytest
 import allure
 import requests
 import logging
-from modelcodesAPI import ModelCodesAPI  # Importing from the separate module
+from App.modelcodesAPI import ModelCodesAPI  # Importing from the separate module
 
 class VehicleAPI:
     def __init__(self, access_token):

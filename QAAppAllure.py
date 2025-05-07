@@ -41,7 +41,7 @@ from TestsCodes import test_bfv1
 from TestsCodes import test_bfv2
 from TestsCodes import test_bfv3
 from TestsCodes import test_LastConfigStarted
-from TestsCodes import test_LastConfigStarted
+from TestsCodes import test_LastConfigCompleted
 from TestsCodes import test_LastSeenSRP
 from TestsCodes import test_LastSeenPDP
 from TestsCodes import PersonalizedCTA1_test
@@ -55,7 +55,7 @@ test_mapping = {
     "BFV2": test_bfv2.BFV2Test,
     "BFV3": test_bfv3.BFV3Test,
     "Last Configuration Started": test_LastConfigStarted.LCStartedTest,
-    "Last Configuration Started": test_LastConfigStarted.LCStartedTest,
+    "Last Configuration Completed": test_LastConfigCompleted.LCCompletedTest,
     "Last Seen SRP": test_LastSeenSRP.LSeenSRPTest,
     "Last Seen PDP": test_LastSeenPDP.LSeenPDPTest,
     "Personalized CTA 1": PersonalizedCTA1_test.PersonalizedCTA1Test,
@@ -114,7 +114,7 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 
     # BFV Logic
     if 'CONFIGURATOR' not in urls or not urls['CONFIGURATOR']:
-        if test_name in ["BFV1", "BFV2", "BFV3", "Last Configuration Started", "Last Configuration Started"]:
+        if test_name in ["BFV1", "BFV2", "BFV3", "Last Configuration Started", "Last Configuration Completed"]:
             message = f"❌ Skipping test '{test_name}' due to lack of CONFIGURATOR URL."
             logging.warning(message)
             allure.dynamic.description(message)
@@ -215,14 +215,29 @@ manual_test_cases = [
     
     
     
-   
-    {"test_name": "Last Configuration Started", "market_code": "AT/de", "model_code": "C174"},
+
+
+    
  
-    
-
-
-    
-  
+    {"test_name": "Last Seen PDP", "market_code": "AT/de", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "BE/nl", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "BE/fr", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "CH/de", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "CH/fr", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "CH/it", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "CZ/cs", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "DK/da", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "FR/fr", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "HU/hu", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "IT/it", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "LU/de", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "LU/fr", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "NL/nl", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "PL/pl", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "PT/pt", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "RO/ro", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "SE/sv", "model_code": "C236"},
+    {"test_name": "Last Seen PDP", "market_code": "SK/sk", "model_code": "C236"}
     
     
 ]

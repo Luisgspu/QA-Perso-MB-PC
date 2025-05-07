@@ -13,10 +13,14 @@ class ScreenshotHandler:
         try:
             # Determine the status of the test
             status = "SUCCESSFUL" if test_success else "UNSUCCESSFUL"
-
+            
+            # Extract the market code and language code
+            market_code = self.get_market_code(urls['HOME_PAGE'])
+            language_code = self.get_language_code(urls['HOME_PAGE'])
+            
             # Construct the filename
             market_code = self.get_market_code(urls['HOME_PAGE'])
-            filename = f"{market_code}--{test_name} {model_name} {body_type} {retries + 1} {status}.png"
+            filename = f"{market_code}-{language_code}-{test_name} {model_name} {body_type} {retries + 1} {status}.png"
             filepath = os.path.join(self.screenshot_dir, filename)
 
             with allure.step("📜 Scrolling to specific elements and capturing screenshot"):
