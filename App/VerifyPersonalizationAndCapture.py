@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
 from App.ScreenshotHandler import ScreenshotHandler
+import pytest
 
 # Función para adjuntar capturas de pantalla a Allure
 def attach_screenshot_to_allure(screenshot_path):
@@ -58,6 +59,8 @@ def verify_personalization_and_capture(
                             # Check if experienceName contains "Control Group" or userGroup is "control"
                             if "Control Group" in experience_Name or user_group.lower() == "control":  
                                 with allure.step(f"❌ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure."):
+                                    message = f"❌ Test '{test_name}' failed because the campaign was identified as part of the Control Group."
+                                    pytest.fail(message)
                                     logging.info(f"ℹ️ Campaign '{campaign_name}' is in the Control Group. Retrying test without marking success or failure.")
                                 
                                 # Add a custom defect category for Control Group Fail
@@ -127,7 +130,10 @@ def verify_personalization_and_capture(
                     logging.info(f"✅ Found matching image with src: {matching_src}")
             except Exception as e:
                 test_success = False
+                message = f"❌ Test '{test_name}' failed because the personalized image did not match the expected source."
+                pytest.fail(message)
                 with allure.step(f"❌ Image not found in the specified selector. Error: {e}"):
+                    
                     logging.error(f"❌ Image not found in the specified selector. Error: {e}")
                     
                     # Add a custom defect category for Wrong Personalization Image
