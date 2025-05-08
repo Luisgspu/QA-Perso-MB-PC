@@ -71,7 +71,7 @@ class LSeenPDPTest:
                 self.driver.get(pdp_url)
                 logging.info(f"🌍 Opened PDP URL: {pdp_url}")
                 WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-                time.sleep(3)  # Wait for the page to load
+                time.sleep(6)  # Wait for the page to load
 
 
             with allure.step(f"🌍 Navigated back to: {self.urls['HOME_PAGE']}"):

@@ -1,12 +1,13 @@
 from selenium import webdriver
 import logging
 import pytest
+import time
 
 
 def build_chrome_options():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
-    options.add_argument("--disable-gpu")
+    options.add_argument("--headless=new") # Use new headless mode for better performance  
+    options.add_argument("--disable-gpu") 
     options.add_argument("--enable-webgl")
     options.add_argument("--incognito")
     options.add_argument("--disable-dev-shm-usage")
@@ -26,6 +27,8 @@ def build_chrome_options():
 def create_driver(options):
     driver = webdriver.Chrome(options=options)
     driver.options = options  # Guardamos las opciones para reusarlas en el restart
+
+    
     driver.fullscreen_window()
     return driver
 

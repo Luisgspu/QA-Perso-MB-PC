@@ -1,10 +1,6 @@
 name: Allure Report Workflow
 
 on:
-  push:
-    branches:
-      - master
-      - BFV3
   workflow_dispatch:    
 
 permissions:
@@ -38,11 +34,18 @@ jobs:
           poetry install --no-root
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)/App" >> $GITHUB_ENV    
+        run: echo "PYTHONPATH=$(pwd)/App" >> $GITHUB_ENV
+
+      # Add this step to fetch and log the public IP address
+      - name: Get Public IP Address
+        run: |
+          echo "Fetching public IP address..."
+          curl -s https://ifconfig.me > public_ip.txt
+          echo "Public IP Address: $(cat public_ip.txt)"      
 
       - name: Run tests scripts directly
         run: |
-          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 5 --alluredir=report/allure-results
+          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 3 --alluredir=report/allure-results
 
       - name: Checkout gh-pages
         uses: actions/checkout@v3

@@ -135,31 +135,42 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
             pytest.skip(message)
 
     try:
-        driver.get(urls['HOME_PAGE'])
-        WebDriverWait(driver, 15).until(lambda d: d.execute_script("return document.readyState") == "complete")
-        logging.info(f"🌍 Navigated to: {urls['HOME_PAGE']}")
+        with allure.step(f"🌍 Navigating to HOME_PAGE: {urls['HOME_PAGE']}"):
+            driver.get(urls['HOME_PAGE'])
+            WebDriverWait(driver, 15).until(lambda d: d.execute_script("return document.readyState") == "complete")
+            logging.info(f"🌍 Navigated to: {urls['HOME_PAGE']}")
     except Exception as e:
         logging.error(f"❌ Error navigating to HOME_PAGE: {e}")
         pytest.fail(f"Error navigating to HOME_PAGE: {e}")
 
     try:
-        WebDriverWait(driver, 6).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "cmm-cookie-banner"))
-        )
-        time.sleep(2)
-        logging.info("✅ Cookie banner detected.")
-        driver.execute_script("""
-            document.querySelector("cmm-cookie-banner").shadowRoot.querySelector("wb7-button.button--accept-all").click();
-        """)
-        allure.step("✅ Clicked on accept cookies.")
+        with allure.step("✅ Detecting and accepting cookies"):
+            WebDriverWait(driver, 6).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "cmm-cookie-banner"))
+            )
+            time.sleep(2)
+            logging.info("✅ Cookie banner detected.")
+            driver.execute_script("""
+                document.querySelector("cmm-cookie-banner").shadowRoot.querySelector("wb7-button.button--accept-all").click();
+            """)
+            logging.info("✅ Clicked on accept cookies.")
     except Exception as ex:
-        allure.attach("❌ Cookie banner not found or already accepted.")
+        # Attach the error to Allure
+        allure.attach("❌ Cookie banner not found or already accepted.", name="Cookie Acceptance Error", attachment_type=allure.attachment_type.TEXT)
+        # Add a custom defect category
+        allure.dynamic.label("defect", "Cookie Acceptance Failure")
+        allure.dynamic.tag("Cookie Issue")
+        
+        # Log the error
+        logging.error("❌ Failed to accept cookies.")
+        pytest.fail("Failed to accept cookies.")
+    
 
     # Execute test
     if test_name in test_mapping:
         test_instance = test_mapping[test_name](driver, urls)
         test_instance.run()
-        allure.step(f"✅ {test_name} test completed.")
+        allure.step(f"✅ {test_name} test Started.")
         time.sleep(4)
 
         test_success = verify_personalization_and_capture(
@@ -169,6 +180,30 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 
     if not test_success:
         failure_message = f"❌ Test '{test_name}' failed."
+
+        # Dynamically determine the failure reason
+        if "Control Group Fail" in failure_message:
+            # Categorize as Control Group Fail
+            allure.dynamic.issue("Control Group Fail")
+            allure.dynamic.severity(allure.severity_level.CRITICAL)  # Mark as critical severity
+            logging.error("❌ Categorized as Control Group Fail.")
+        elif "Wrong Personalization Image" in failure_message:
+            # Categorize as Wrong Personalization Image
+            allure.dynamic.issue("Wrong Personalization Image")
+            allure.dynamic.severity(allure.severity_level.BLOCKER)  # Mark as blocker severity
+            logging.error("❌ Categorized as Wrong Personalization Image.")
+        elif "Cookie Acceptance Failure" in failure_message:
+            # Categorize as Cookie Acceptance Failure
+            allure.dynamic.issue("Cookie Acceptance Failure")
+            allure.dynamic.severity(allure.severity_level.MINOR)  # Mark as minor severity
+            logging.error("❌ Categorized as Cookie Acceptance Failure.")
+        else:
+            # General Test Failure
+            allure.dynamic.issue("General Test Failure")
+            allure.dynamic.severity(allure.severity_level.NORMAL)  # Default severity
+            logging.error("❌ Categorized as General Test Failure.")
+
+        # Log and attach the failure message
         logging.error(failure_message)
         allure.attach(failure_message, name="Test Failure", attachment_type=allure.attachment_type.TEXT)
         pytest.fail(failure_message)

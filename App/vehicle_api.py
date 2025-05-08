@@ -96,6 +96,16 @@ class VehicleAPI:
                 home_page = f"{parts[0]}//{parts[2]}/nl_BE"
             elif market_code.startswith("BE/fr"):
                 home_page = f"{parts[0]}//{parts[2]}/fr"
+            elif market_code.startswith("CH/de"):
+                home_page = f"{parts[0]}//{parts[2]}/de"
+            elif market_code.startswith("CH/it"):
+                home_page = f"{parts[0]}//{parts[2]}/it"
+            elif market_code.startswith("CH/fr"):
+                home_page = f"{parts[0]}//{parts[2]}/fr"
+            elif market_code.startswith("LU/de"):
+                home_page = f"{parts[0]}//{parts[2]}/de"
+            elif market_code.startswith("LU/fr"):
+                home_page = f"{parts[0]}//{parts[2]}/fr"                                
             elif "/vans/" in configurator_url:
                 home_page = f"{parts[0]}//{parts[2]}/vans"
             else:
@@ -136,8 +146,8 @@ if __name__ == "__main__":
 
     # Replace with your actual access token and market code
     access_token = "YOUR_ACCESS_TOKEN"
-    market_code = "IT/it"
-    model_code = ""  # Replace with a specific model code if needed, e.g., "X123"
+    market_code = "CH/it"
+    model_code = "C174"  # Replace with a specific model code if needed, e.g., "X123"
 
     # Initialize VehicleAPI
     vehicle_api = VehicleAPI(access_token)
