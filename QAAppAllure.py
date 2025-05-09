@@ -218,13 +218,9 @@ manual_test_cases = [
 
 
     
-    {"test_name": "BFV1", "market_code": "LU/de"},
-    {"test_name": "BFV2", "market_code": "LU/de"},
+    
     {"test_name": "BFV3", "market_code": "LU/de"},
-    {"test_name": "Last Configuration Started", "market_code": "LU/de"},
-    {"test_name": "Last Configuration Completed", "market_code": "LU/de"},
-    {"test_name": "Last Seen SRP", "market_code": "LU/de"},
-    {"test_name": "Last Seen PDP", "market_code": "LU/de"},
+  
 
     
 
