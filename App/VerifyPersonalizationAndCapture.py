@@ -92,7 +92,7 @@ def verify_personalization_and_capture(
 
                 # Dynamically determine the selector based on the market
                 if ".co.uk" in urls['HOME_PAGE']:
-                    selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > div:nth-child(14) > div"
+                    selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > div:nth-child(16)"
                 else:
                     selector = "[data-component-name='hp-campaigns']"
                 
