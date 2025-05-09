@@ -152,7 +152,6 @@ def verify_personalization_and_capture(
                     allure.dynamic.tag("Personalization Issue")
                                 
                     allure.attach(f"Expected src: {expected_src}", name="Expected Image Source", attachment_type=allure.attachment_type.TEXT)
-                    allure.attach(f"Error: {e}", name="Image Verification Error", attachment_type=allure.attachment_type.TEXT)
                 # Debug campaign images
                 with allure.step("🔍 Debugging campaign images..."):
                     try:
