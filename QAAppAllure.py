@@ -116,21 +116,18 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
     if 'CONFIGURATOR' not in urls or not urls['CONFIGURATOR']:
         if test_name in ["BFV1", "BFV2", "BFV3", "Last Configuration Started", "Last Configuration Completed"]:
             message = f"❌ Skipping test '{test_name}' due to lack of CONFIGURATOR URL."
-            logging.warning(message)
             allure.dynamic.description(message)
             pytest.skip(message)
 
     if 'ONLINE_SHOP' not in urls or not urls['ONLINE_SHOP']:
         if test_name in ["BFV2", "BFV3", "Last Seen PDP", "Last Seen SRP"]:
             message = f"❌ Skipping test '{test_name}' due to lack of ONLINE_SHOP URL."
-            logging.warning(message)
             allure.dynamic.description(message)
             pytest.skip(message)
 
     if 'TEST_DRIVE' not in urls or not urls['TEST_DRIVE']:
         if test_name == "BFV3":
             message = f"❌ Skipping test '{test_name}' due to lack of TEST_DRIVE URL."
-            logging.warning(message)
             allure.dynamic.description(message)
             pytest.skip(message)
 
