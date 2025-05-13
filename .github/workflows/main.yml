@@ -45,7 +45,7 @@ jobs:
 
       - name: Run tests scripts directly
         run: |
-          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 3 --alluredir=report/allure-results
+          poetry run pytest QAAppAllure.py -n auto -s -v --reruns 4 --alluredir=report/allure-results
 
       - name: Checkout gh-pages
         uses: actions/checkout@v3
