@@ -92,7 +92,7 @@ def verify_personalization_and_capture(
 
                 # Dynamically determine the selector based on the market
                 if ".co.uk" in urls['HOME_PAGE']:
-                    selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > div:nth-child(14) > div"
+                    selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > div:nth-child(16)"
                 else:
                     selector = "[data-component-name='hp-campaigns']"
                 
@@ -142,9 +142,7 @@ def verify_personalization_and_capture(
                     attach_screenshot_to_allure(screenshot_path)
                 except Exception as e:
                     logging.error(f"❌ Failed to capture or attach screenshot: {e}")
-                test_success = False
-                message = f"❌ Test '{test_name}' failed due to image verification error: {e}"
-                pytest.fail(f"❌ Test '{test_name}' failed due to image verification error: {e}")
+                
                 with allure.step(f"❌ Image not found in the specified selector. Error: {e}"):
                     
                     logging.error(f"❌ Image not found in the specified selector. Error: {e}")
@@ -155,7 +153,21 @@ def verify_personalization_and_capture(
                                 
                     allure.attach(f"Expected src: {expected_src}", name="Expected Image Source", attachment_type=allure.attachment_type.TEXT)
                     allure.attach(f"Error: {e}", name="Image Verification Error", attachment_type=allure.attachment_type.TEXT)
-
+                # Debug campaign images
+                with allure.step("🔍 Debugging campaign images..."):
+                    try:
+                        imgs = driver.execute_script(f"""
+                            return Array.from(document.querySelectorAll("{selector} img")).map(img => img.src);
+                        """)
+                        logging.info(f"🖼️ Found campaign images: {imgs}")
+                        allure.attach("\n".join(imgs), name="Campaign Images", attachment_type=allure.attachment_type.TEXT)
+                    except Exception as e:
+                        logging.error(f"❌ Error extracting image URLs: {e}")
+                        allure.attach(f"Error extracting image URLs: {e}", name="Image Debug Error", attachment_type=allure.attachment_type.TEXT)
+                    
+                test_success = False
+                message = f"❌ Test '{test_name}' failed due to image verification error: {e}"
+                pytest.fail(f"❌ Test '{test_name}' failed due to image verification error: {e}")
         # Debug campaign images
         with allure.step("🔍 Debugging campaign images..."):
             try:
