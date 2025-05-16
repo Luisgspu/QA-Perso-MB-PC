@@ -13,6 +13,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true # cancel jobs in progress
 
+
+
 jobs:
   test:
     if: ${{ !(github.event_name == 'push' && github.event.pull_request) }}
@@ -56,11 +58,12 @@ jobs:
           path: gh-pages-dir # checkout path
 
       - name: Allure Report Action
-        uses: mgrybyk/allure-report-branch-action@v1
+        uses: mgrybyk-org/allure-report-branch-action@v1.4.5
         if: always()
         continue-on-error: true
         id: allure
         with:
+          token: ${{ secrets.PAT_TOKEN }}
           report_id: 'allure'
           gh_pages: 'gh-pages-dir'
           report_dir: 'report/allure-results'
@@ -69,11 +72,12 @@ jobs:
           max_reports: 0
 
       - name: Git Commit and Push Action
-        uses: mgrybyk/git-commit-pull-push-action@v1
+        uses: mgrybyk-org/git-commit-pull-push-action@v1.2.5
         if: always()
         with:
           repository: gh-pages-dir
           branch: gh-pages
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Comment PR with Allure Report link
         if: ${{ always() && github.event_name == 'pull_request' && steps.allure.outputs.report_url }}
