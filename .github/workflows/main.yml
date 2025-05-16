@@ -13,6 +13,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true # cancel jobs in progress
 
+
+
 jobs:
   test:
     if: ${{ !(github.event_name == 'push' && github.event.pull_request) }}
@@ -61,6 +63,7 @@ jobs:
         continue-on-error: true
         id: allure
         with:
+          token: ${{ secrets.PAT_TOKEN }}
           report_id: 'allure'
           gh_pages: 'gh-pages-dir'
           report_dir: 'report/allure-results'
