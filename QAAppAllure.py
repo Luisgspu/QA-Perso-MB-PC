@@ -237,8 +237,8 @@ for manual_case in manual_test_cases:
             # Append the test-specific query parameter to all URLs
             if "urls" in case:
                 for key, url in case["urls"].items():
-                    if url:  # Ensure the URL is not None
-                        case["urls"][key] = f"{url}?internal_test=true"
+                    if url and key == "HOME_PAGE":  # Ensure the URL is not None and the key is HOME_PAGE
+                        case["urls"][key] = f"{url}?usecaselivetest=true"  
 
         if model_code:
             # Update the manual case with the fetched URLs for the specific model

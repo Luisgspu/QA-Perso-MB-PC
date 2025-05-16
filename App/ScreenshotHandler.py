@@ -28,7 +28,7 @@ class ScreenshotHandler:
                 try:
                     element = self.driver.find_element(By.CSS_SELECTOR, "[data-component-name='hp-campaigns']")
                     self.driver.execute_script("arguments[0].scrollIntoView({block: 'start'});", element)
-                    time.sleep(3)
+                    time.sleep(1)
                     allure.attach("✅ Scrolled to [data-component-name='hp-campaigns'].", name="Scroll Info", attachment_type=allure.attachment_type.TEXT)
                 except Exception as e:
                     allure.attach(f"❌ Error: {e}", name="Scroll Error", attachment_type=allure.attachment_type.TEXT)

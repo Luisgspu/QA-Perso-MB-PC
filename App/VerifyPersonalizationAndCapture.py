@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
 from App.ScreenshotHandler import ScreenshotHandler
+from App.CTAVerifierPDP import CTAVerifier
 import pytest
 
 # Función para adjuntar capturas de pantalla a Allure
@@ -128,6 +129,25 @@ def verify_personalization_and_capture(
 
                 with allure.step(f"✅ Personalized image with expected src '{expected_src}' was applied correctly."):
                     logging.info(f"✅ Found matching image with src: {matching_src}")
+                # Check if the current page is the last seen PDP
+                if test_name == "Last Seen PDP":  # Adjust the condition based on your PDP URL structure
+                    with allure.step("🔍 Verifying CTAs on the PDP"):
+                        # Instantiate the CTAVerifierPDP class
+                        cta_verifier = CTAVerifier(driver)
+
+                        # Define selectors and expected href
+                        parent_selector = 'div.hp-campaigns__content'
+                        primary_cta_selector = 'div.hp-campaigns__content a'
+                        
+                        # Set the expected href value based on the market
+                        if ".co.uk" in urls['HOME_PAGE']:
+                            expected_href_value = "/buy/new-vans/product.html/"
+                        else:
+                            expected_href_value = "/buy/new-car/product.html/"
+
+                        # Call the verify_ctas method
+                        cta_verifier.verify_ctas(parent_selector, primary_cta_selector, expected_href_value)
+                            
             except Exception as e:
                 # Capture screenshot
                 logging.info("📸 Taking screenshot...")
