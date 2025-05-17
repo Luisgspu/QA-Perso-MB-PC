@@ -63,7 +63,6 @@ jobs:
         continue-on-error: true
         id: allure
         with:
-          token: ${{ secrets.PAT_TOKEN }}
           report_id: 'allure'
           gh_pages: 'gh-pages-dir'
           report_dir: 'report/allure-results'
@@ -77,7 +76,6 @@ jobs:
         with:
           repository: gh-pages-dir
           branch: gh-pages
-          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Comment PR with Allure Report link
         if: ${{ always() && github.event_name == 'pull_request' && steps.allure.outputs.report_url }}
