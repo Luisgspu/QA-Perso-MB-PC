@@ -171,7 +171,6 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
         test_instance = test_mapping[test_name](driver, urls)
         test_instance.run()
         allure.step(f"✅ {test_name} test Started.")
-        time.sleep(4)
 
         test_success = verify_personalization_and_capture(
             driver, test_name, model_name, body_type, attempt, screenshot_dir,
@@ -215,15 +214,8 @@ manual_test_cases = [
     
     
 
-    {"test_name": "BFV3", "market_code": "AT/de"},
-    {"test_name": "BFV3", "market_code": "BE/nl"},
-    {"test_name": "BFV3", "market_code": "BE/fr"},
-    {"test_name": "BFV3", "market_code": "CH/de"},
-    {"test_name": "BFV3", "market_code": "CH/fr"},
-    {"test_name": "BFV3", "market_code": "CH/it"},
-    {"test_name": "BFV3", "market_code": "CZ/cs"},
-    {"test_name": "BFV3", "market_code": "DE/de"},
-    {"test_name": "BFV3", "market_code": "DK/da"},
+    {"test_name": "BFV1", "market_code": "AT/de"},
+
  
 
   
