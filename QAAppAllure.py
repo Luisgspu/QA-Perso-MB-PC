@@ -226,6 +226,7 @@ manual_test_cases = [
     {"test_name": "BFV3", "market_code": "RO/ro"},
     {"test_name": "BFV3", "market_code": "SE/sv"},
     {"test_name": "BFV3", "market_code": "SK/sk"}
+ 
 
 
     
@@ -314,7 +315,13 @@ def test_run(test_case, screenshot_dir):
         if model_name:
             allure.dynamic.tag(model_name)
 
-        
+        # Attach URLs to Allure
+        with allure.step(f"🌐 Fetched URLs for {model_name or 'N/A'} ({body_type or 'N/A'})"):
+            allure.attach(
+                json.dumps(urls, indent=2),
+                name=f"URLs for {model_name or 'N/A'} ({body_type or 'N/A'})",
+                attachment_type=allure.attachment_type.JSON
+            )
 
         # Extract base test name
         base_test_name = test_name.split(" - ")[0]
