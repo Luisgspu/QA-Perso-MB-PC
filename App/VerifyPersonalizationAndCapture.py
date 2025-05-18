@@ -92,22 +92,18 @@ def verify_personalization_and_capture(
                     expected_src = "/images/dynamic/europe/"
 
                 # Dynamically determine the selector based on the market
-                if ".co.uk" in urls['HOME_PAGE']:
-                    selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > div:nth-child(16)"
-                else:
-                    selector = "[data-component-name='hp-campaigns']"
-                
-                # Scroll to the element if the market is UK
-                if ".co.uk" in urls['HOME_PAGE']:
-                    with allure.step("📜 Scrolling to the UK-specific element..."):
-                        try:
-                            element_to_scroll = driver.find_element(By.CSS_SELECTOR, selector)
-                            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element_to_scroll)
-                            logging.info(f"✅ Scrolled to element: {selector}")
-                        except Exception as e:
-                            logging.error(f"❌ Failed to scroll to element: {selector}. Error: {e}")
-                            allure.attach(f"Error: {e}", name="Scroll Error", attachment_type=allure.attachment_type.TEXT)
-                            return False    
+                selector = "[data-component-name='hp-campaigns']"
+
+                # Scroll to the element
+                with allure.step("📜 Scrolling to the element..."):
+                    try:
+                        element_to_scroll = driver.find_element(By.CSS_SELECTOR, selector)
+                        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element_to_scroll)
+                        logging.info(f"✅ Scrolled to element: {selector}")
+                    except Exception as e:
+                        logging.error(f"❌ Failed to scroll to element: {selector}. Error: {e}")
+                        allure.attach(f"Error: {e}", name="Scroll Error", attachment_type=allure.attachment_type.TEXT)
+                        return False
 
                 # Wait for the images to load and check if any match the expected src
                 WebDriverWait(driver, 10).until(
