@@ -107,30 +107,30 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
         allure.attach(f"❌ Could not fetch valid URLs for test '{test_name}' (market: {market_code}, model: {model_code})")
         pytest.fail(f"Missing HOME_PAGE URL for test '{test_name}'")
 
-    allure.step(f"🌐 Fetched URLs from API for test '{test_name}':\n"
-                f"Model Name: {urls.get('MODEL_NAME', 'N/A')}\n"
-                f"Body Type: {urls.get('BODY_TYPE', 'N/A')}\n"
-                f"URLs:\n{json.dumps(urls, indent=2)}")
+    # Attach URLs to Allure
+        with allure.step(f"🌐 Fetched URLs for {model_name or 'N/A'} ({body_type or 'N/A'})"):
+            allure.attach(
+                json.dumps(urls, indent=2),
+                name=f"URLs for {model_name or 'N/A'} ({body_type or 'N/A'})",
+                attachment_type=allure.attachment_type.JSON
+            )
 
     # BFV Logic
     if 'CONFIGURATOR' not in urls or not urls['CONFIGURATOR']:
         if test_name in ["BFV1", "BFV2", "BFV3", "Last Configuration Started", "Last Configuration Completed"]:
             message = f"❌ Skipping test '{test_name}' due to lack of CONFIGURATOR URL."
-            logging.warning(message)
             allure.dynamic.description(message)
             pytest.skip(message)
 
     if 'ONLINE_SHOP' not in urls or not urls['ONLINE_SHOP']:
         if test_name in ["BFV2", "BFV3", "Last Seen PDP", "Last Seen SRP"]:
             message = f"❌ Skipping test '{test_name}' due to lack of ONLINE_SHOP URL."
-            logging.warning(message)
             allure.dynamic.description(message)
             pytest.skip(message)
 
     if 'TEST_DRIVE' not in urls or not urls['TEST_DRIVE']:
         if test_name == "BFV3":
             message = f"❌ Skipping test '{test_name}' due to lack of TEST_DRIVE URL."
-            logging.warning(message)
             allure.dynamic.description(message)
             pytest.skip(message)
 
@@ -213,20 +213,20 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 # Manually defined test cases
 manual_test_cases = [
     
-
-
- 
-    {"test_name": "BFV1", "market_code": "DE/de", "model_code": "C236"},
-    {"test_name": "BFV2", "market_code": "DE/de", "model_code": "C236"},
-    {"test_name": "BFV3", "market_code": "DE/de", "model_code": "C236"},
-    {"test_name": "Last Configuration Started", "market_code": "DE/de", "model_code": "C236"},
-    {"test_name": "Last Configuration Completed", "market_code": "DE/de", "model_code": "C236"},
-    {"test_name": "Last Seen SRP", "market_code": "DE/de", "model_code": "C236"},
-    {"test_name": "Last Seen PDP", "market_code": "DE/de", "model_code": "C236"},
-
-
-
     
+
+    {"test_name": "BFV3", "market_code": "AT/de"},
+    {"test_name": "BFV3", "market_code": "BE/nl"},
+    {"test_name": "BFV3", "market_code": "BE/fr"},
+    {"test_name": "BFV3", "market_code": "CH/de"},
+    {"test_name": "BFV3", "market_code": "CH/fr"},
+    {"test_name": "BFV3", "market_code": "CH/it"},
+    {"test_name": "BFV3", "market_code": "CZ/cs"},
+    {"test_name": "BFV3", "market_code": "DE/de"},
+    {"test_name": "BFV3", "market_code": "DK/da"},
+ 
+
+  
     
 ]
 
@@ -311,11 +311,12 @@ def test_run(test_case, screenshot_dir):
             allure.dynamic.tag(model_name)
 
         # Attach URLs to Allure
-        allure.attach(
-            json.dumps(urls, indent=2),
-            name=f"URLs for {model_name or 'N/A'} ({body_type or 'N/A'})",
-            attachment_type=allure.attachment_type.JSON
-        )
+        with allure.step(f"🌐 Fetched URLs for {model_name or 'N/A'} ({body_type or 'N/A'})"):
+            allure.attach(
+                json.dumps(urls, indent=2),
+                name=f"URLs for {model_name or 'N/A'} ({body_type or 'N/A'})",
+                attachment_type=allure.attachment_type.JSON
+            )
 
         # Extract base test name
         base_test_name = test_name.split(" - ")[0]
