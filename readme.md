@@ -1,17 +1,38 @@
-# QA Allure Reporting
+# QA App Perso MB PC
 
-This project is for QA testing with Allure reporting.
+This project is for automated QA testing with Allure reporting.
 
 ## Installation
 
-# QA-App-Allure-Testing
+Use Poetry to install dependencies:
+```bash
+poetry install
+```
 
-## Overview
-This project is designed for automated testing of web applications using Selenium and pytest. It includes various modules for handling screenshots, XHR responses, cookies, and API interactions, as well as a suite of test cases that validate different functionalities of the application.
+## Usage
+
+### Run Tests
+
+To execute all tests and generate Allure results:
+```bash
+poetry run pytest QAAppAllure.py --alluredir=allure-results
+```
+
+### Generate Allure Report
+
+After running tests, generate the Allure HTML report:
+```bash
+allure generate allure-results --clean -o allure-report
+allure open allure-report
+```
+
+### Running in CI/CD
+
+This project includes GitHub Actions workflows for scheduled and on-demand test execution. See `.github/workflows/` for examples.
 
 ## Project Structure
 ```
-QA-App-Allure-Testing
+QA-App-Perso-MB-PC
 ├── App
 │   ├── ScreenshotHandler.py
 │   ├── XHRResponseCapturer.py
@@ -36,65 +57,24 @@ QA-App-Allure-Testing
 │   ├── PersonalizedCTA2_test.py
 │   ├── PersonalizedCTA3_test.py
 │   └── PersonalizedCTA4_test.py
-├── playwright
-│   ├── browser_setup.py
-│   ├── page_objects
-│   │   ├── home_page.py
-│   │   ├── configurator_page.py
-│   │   └── test_drive_page.py
-│   └── utils
-│       ├── api_handler.py
-│       ├── screenshot_handler.py
-│       └── xhr_handler.py
-├── tests
-│   ├── test_bfv1_playwright.py
-│   ├── test_bfv2_playwright.py
-│   ├── test_bfv3_playwright.py
-│   ├── test_LastConfigStarted_playwright.py
-│   ├── test_LastConfigCompleted_playwright.py
-│   ├── test_LastSeenSRP_playwright.py
-│   ├── test_LastSeenPDP_playwright.py
-│   ├── PersonalizedCTA1_test_playwright.py
-│   ├── PersonalizedCTA2_test_playwright.py
-│   ├── PersonalizedCTA3_test_playwright.py
-│   └── PersonalizedCTA4_test_playwright.py
+├── QAAppAllure.py
 ├── requirements.txt
 ├── pytest.ini
 └── .gitignore
 ```
 
-## Setup Instructions
-1. **Clone the repository**:
-   ```
-   git clone <repository-url>
-   cd QA-App-Allure-Testing
-   ```
+## Customization
 
-2. **Install dependencies**:
-   Ensure you have Python installed, then run:
-   ```
-   pip install -r requirements.txt
-   ```
+- **Add test cases:** Edit files in `TestsCodes/` or `App/` to add or modify test cases.
+- **Configure Allure:** Adjust Allure steps and attachments in your test code for richer reporting.
 
-3. **Install Playwright Browsers**:
-   After installing Playwright, you need to install the necessary browsers:
-   ```
-   playwright install
-   ```
+## Troubleshooting
 
-## Running Tests
-To run the tests, use the following command:
-```
-pytest
-```
-
-You can also run specific tests by specifying the test file:
-```
-pytest tests/test_bfv1_playwright.py
-```
-
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
+- **No space left on device:** Clean up old artifacts and temporary files in your CI environment.
+- **Allure not generating reports:** Ensure you use the `--alluredir=allure-results` option with pytest and have Allure CLI installed.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
+MIT License
+
+---
