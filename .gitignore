@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# Poetry
+poetry.lock
+
+# Allure results and reports
+allure-results/
+allure-report/
+
+# Test outputs
+*.log
+*.tmp
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other
+*.swp
