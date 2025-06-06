@@ -9,6 +9,7 @@ import allure
 from App.ScreenshotHandler import ScreenshotHandler
 from App.CTAVerifierPDP import CTAVerifier
 import pytest
+from App.ImageVerifier import ImageVerifier
 
 # Función para adjuntar capturas de pantalla a Allure
 def attach_screenshot_to_allure(screenshot_path):
@@ -105,26 +106,32 @@ def verify_personalization_and_capture(
                         allure.attach(f"Error: {e}", name="Scroll Error", attachment_type=allure.attachment_type.TEXT)
                         return False
 
-                # Wait for the images to load and check if any match the expected src
-                WebDriverWait(driver, 10).until(
-                    lambda d: d.execute_script(f"""
-                        const imgs = document.querySelectorAll("{selector} img");
-                        return Array.from(imgs).some(img => img.complete && img.naturalHeight !== 0 && img.src.includes("{expected_src}"));
-                    """)
+                # Capture screenshot
+                logging.info("📸 Taking screenshot...")
+                screenshot_handler = ScreenshotHandler(driver, screenshot_dir)
+                screenshot_path = os.path.join(screenshot_dir, f"{test_name}_attempt_{retries + 1}.png")
+
+                try:
+                    screenshot_handler.scroll_and_capture_screenshot(urls, test_name, model_name, body_type, retries, test_success)
+                    logging.info(f"✅ Screenshot saved at: {screenshot_path}")
+
+                    # Attach the screenshot to the Allure report
+                    attach_screenshot_to_allure(screenshot_path)
+                except Exception as e:
+                    logging.error(f"❌ Failed to capture or attach screenshot: {e}")
+                    
+                # Verify the personalized image
+                image_verifier = ImageVerifier(driver)
+                test_success = image_verifier.verify_image(
+                    selector=selector + " img",
+                    expected_path=expected_src,
+                    test_name=test_name,
+                    timeout=6
                 )
+                
+                
                 test_success = True
 
-                # Attach the found src to the Allure report
-                found_srcs = driver.execute_script(f"""
-                    const imgs = document.querySelectorAll("{selector} img");
-                    return Array.from(imgs).map(img => img.src);
-                """)
-                matching_src = next((src for src in found_srcs if expected_src in src), "No matching image found")
-                allure.attach("\n".join(found_srcs), name="All Found Image Sources", attachment_type=allure.attachment_type.TEXT)
-                allure.attach(matching_src, name="Matching Image Source", attachment_type=allure.attachment_type.TEXT)
-
-                with allure.step(f"✅ Personalized image with expected src '{expected_src}' was applied correctly."):
-                    logging.info(f"✅ Found matching image with src: {matching_src}")
                 # Check if the current page is the last seen PDP
                 if test_name == "Last Seen PDP":  # Adjust the condition based on your PDP URL structure
                     with allure.step("🔍 Verifying CTAs on the PDP"):
@@ -158,59 +165,9 @@ def verify_personalization_and_capture(
                     attach_screenshot_to_allure(screenshot_path)
                 except Exception as e:
                     logging.error(f"❌ Failed to capture or attach screenshot: {e}")
-                
-                with allure.step(f"❌ Image not found in the specified selector. Error: {e}"):
                     
-                    logging.error(f"❌ Image not found in the specified selector. Error: {e}")
-                    
-                    # Add a custom defect category for Wrong Personalization Image
-                    allure.dynamic.label("defect", "Wrong Personalization Image")
-                    allure.dynamic.tag("Personalization Issue")
-                                
-                    allure.attach(f"Expected src: {expected_src}", name="Expected Image Source", attachment_type=allure.attachment_type.TEXT)
-                    allure.attach(f"Error: {e}", name="Image Verification Error", attachment_type=allure.attachment_type.TEXT)
-                # Debug campaign images
-                with allure.step("🔍 Debugging campaign images..."):
-                    try:
-                        imgs = driver.execute_script(f"""
-                            return Array.from(document.querySelectorAll("{selector} img")).map(img => img.src);
-                        """)
-                        logging.info(f"🖼️ Found campaign images: {imgs}")
-                        allure.attach("\n".join(imgs), name="Campaign Images", attachment_type=allure.attachment_type.TEXT)
-                    except Exception as e:
-                        logging.error(f"❌ Error extracting image URLs: {e}")
-                        allure.attach(f"Error extracting image URLs: {e}", name="Image Debug Error", attachment_type=allure.attachment_type.TEXT)
-                    
-                test_success = False
-                message = f"❌ Test '{test_name}' failed due to image verification error: {e}"
-                pytest.fail(f"❌ Test '{test_name}' failed due to image verification error: {e}")
-        # Debug campaign images
-        with allure.step("🔍 Debugging campaign images..."):
-            try:
-                imgs = driver.execute_script(f"""
-                    return Array.from(document.querySelectorAll("{selector} img")).map(img => img.src);
-                """)
-                logging.info(f"🖼️ Found campaign images: {imgs}")
-                allure.attach("\n".join(imgs), name="Campaign Images", attachment_type=allure.attachment_type.TEXT)
-            except Exception as e:
-                logging.error(f"❌ Error extracting image URLs: {e}")
-                allure.attach(f"Error extracting image URLs: {e}", name="Image Debug Error", attachment_type=allure.attachment_type.TEXT)
-
-        # Capture screenshot
-        logging.info("📸 Taking screenshot...")
-        screenshot_handler = ScreenshotHandler(driver, screenshot_dir)
-        screenshot_path = os.path.join(screenshot_dir, f"{test_name}_attempt_{retries + 1}.png")
-
-        try:
-            screenshot_handler.scroll_and_capture_screenshot(urls, test_name, model_name, body_type, retries, test_success)
-            logging.info(f"✅ Screenshot saved at: {screenshot_path}")
-
-            # Attach the screenshot to the Allure report
-            attach_screenshot_to_allure(screenshot_path)
-        except Exception as e:
-            logging.error(f"❌ Failed to capture or attach screenshot: {e}")
-
-        return test_success
+        return test_success            
+    
     except Exception as e:
         logging.error(f"❌ Error in verify_personalization_and_capture: {e}")
         allure.attach(f"❌ Error in verify_personalization_and_capture: {e}", name="Verify Personalization Error", attachment_type=allure.attachment_type.TEXT)

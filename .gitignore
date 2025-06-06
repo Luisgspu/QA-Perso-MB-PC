@@ -21,6 +21,9 @@ allure-report/
 # Test outputs
 *.log
 *.tmp
+Tests/
+*.png
+
 
 # VS Code settings
 .vscode/

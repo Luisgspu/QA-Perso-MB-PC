@@ -7,6 +7,7 @@ import unittest
 import logging
 import time
 import os
+from ImageVerifier  import ImageVerifier
 
 class VerifyElements(unittest.TestCase):
 
@@ -60,90 +61,32 @@ class VerifyElements(unittest.TestCase):
         WebDriverWait(self.driver, 30).until(lambda driver: driver.execute_script("return document.readyState") == "complete")
 
         # Manejo de cookies
-        time.sleep(4)
+        time.sleep(2)
         self.handle_cookies()
         time.sleep(2)
+        self.driver.get("https://www.mercedes-benz.it/passengercars/models/saloon/s-class/overview.html")
+        time.sleep(2)
+        self.driver.get(url)
+        time.sleep(2)
+
+        self.image_verifier = ImageVerifier(self.driver)
         
-        try:
-            # Localizar el shadow host
-            shadow_host = self.driver.find_element(By.CSS_SELECTOR, parent_selector)
-            logging.info("✅ Shadow host located successfully.")
+        # Call the image verifier here
+        result = self.image_verifier.verify_image(
+            selector="[data-component-name='hp-campaigns'] img",           # <-- update this selector
+            expected_path="/content/dam/hq/personalization/campaignmodule/",    # <-- update this expected path
+            test_name="test_verify_elements"
+        )
+        # Optionally, assert or log the result
+        self.assertTrue(result, "Expected image was not found on the page.")
+        time.sleep(2)
 
-            shadow_root = self.expand_shadow_element(shadow_host)
-            logging.info("✅ Shadow root expanded successfully.")
 
-            # Buscar 'cc-navigation'
-            nav_element = shadow_root.find_element(By.CSS_SELECTOR, 'cc-navigation')
-            nav_element.click()
-            time.sleep(2)  # Espera opcional para cualquier acción
-            if not nav_element:
-                raise Exception("❌ 'cc-navigation' no encontrado.")
-
-            nested_shadow = self.expand_shadow_element(nav_element)
-
-            if nested_shadow:
-                logging.info("✅ Nested shadow DOM encontrado.")
-                main_frame = nested_shadow.find_element(By.CSS_SELECTOR, 'nav > div > ul')
-            else:
-                logging.info("ℹ️ No nested shadow DOM. Usando nav_element directamente.")
-                nav_inside = nav_element.find_element(By.CSS_SELECTOR, 'nav')
-                if not nav_inside:
-                    raise Exception("❌ No se encontró <nav> dentro de cc-navigation.")
-                main_frame = nav_inside.find_element(By.CSS_SELECTOR, 'div > ul')
-
-            if not main_frame:
-                raise Exception("❌ No se encontró el main frame <ul>.")
-
-            logging.info("✅ Main frame (ul element) localizado correctamente.")
-
-            # Espera a que haya al menos un <li>
-            WebDriverWait(self.driver, 10).until(
-                lambda d: len(main_frame.find_elements(By.CSS_SELECTOR, 'li')) > 0
-            )
-
-            child_elements = main_frame.find_elements(By.CSS_SELECTOR, 'li')
-            logging.info(f"✅ {len(child_elements)} child elements encontrados dentro del ul.")
-            logging.debug(f"🔍 HTML de main_frame:\n{main_frame.get_attribute('outerHTML')}")
-
-            # Click al último elemento
-            last_child = child_elements[-1]
-            logging.info("🔍 HTML del último <li>:\n%s", last_child.get_attribute("outerHTML"))
-
-            # Desplaza y pasa el mouse por encima
-            self.driver.execute_script("arguments[0].scrollIntoView(true);", last_child)
-            ActionChains(self.driver).move_to_element(last_child).perform()
-            time.sleep(1)
-
-            try:
-                # Intenta encontrar un <a> o <button> dentro del <li>
-                link_inside = last_child.find_element(By.CSS_SELECTOR, 'a, button')
-                logging.info("✅ Elemento interno (<a>/<button>) encontrado en el <li>.")
-                logging.info("🔍 HTML del clickable interno:\n%s", link_inside.get_attribute("outerHTML"))
-
-                # Intenta hacer clic con JS
-                self.driver.execute_script("arguments[0].click();", link_inside)
-                logging.info("✅ Click en elemento interno del último <li> (a/button).")
-
-            except Exception as inner_click_err:
-                logging.warning(f"⚠️ No se encontró un <a> o <button> dentro del último <li>: {inner_click_err}")
-                logging.info("ℹ️ Intentando clic directo sobre el <li> con JS.")
-
-                try:
-                    self.driver.execute_script("arguments[0].click();", last_child)
-                    logging.info("✅ Click forzado en último <li> usando JS.")
-                except Exception as fallback_err:
-                    logging.error(f"❌ No se pudo hacer click en el <li> ni en sus hijos: {fallback_err}")
-            
-            time.sleep(3)  # Espera opcional para cualquier acción
-          
-
-        except Exception as e:
-            logging.error(f"❌ Error durante la verificación de elementos: {e}")
         
         
 
     def test_verify_elements(self):
-        url = "https://www.mercedes-benz.it/passengercars/mercedes-benz-cars/car-configurator.html/motorization/CCci/IT/it/EQE-KLASSE/OFFROADER"
+        url = "https://www.mercedes-benz.it"
         parent_selector = "body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > owcc-car-configurator"
         
 

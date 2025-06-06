@@ -214,7 +214,7 @@ manual_test_cases = [
     
     
 
-    {"test_name": "BFV1", "market_code": "AT/de"},
+    {"test_name": "Last Seen PDP", "market_code": "DE/de"},
 
  
 

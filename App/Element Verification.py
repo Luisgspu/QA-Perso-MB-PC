@@ -9,6 +9,7 @@ import time
 import os
 from ConfigCompleted import ConfiguratorCompleted
 from CTAHandlerDOM import CTAHandler
+from ImageVerifier import ImageVerifier
 
 class VerifyElements(unittest.TestCase):
 
@@ -21,9 +22,7 @@ class VerifyElements(unittest.TestCase):
         options.add_argument("--disable-blink-features=AutomationControlled")
         options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
         options.add_argument("profile-directory=Default")
-        options.add_argument("--start-fullscreen")
-        self.driver = webdriver.Chrome(options=options)
-        self.driver.fullscreen_window()
+        options.add_argument("--window-size=2560,1440")        
         self.vars = {}
         logging.info("✅ Browser opened in headless mode and in full-screen.")
 
