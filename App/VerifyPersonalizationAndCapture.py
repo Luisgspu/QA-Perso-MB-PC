@@ -94,6 +94,21 @@ def verify_personalization_and_capture(
 
                 # Dynamically determine the selector based on the market
                 selector = "[data-component-name='hp-campaigns']"
+                
+                # Wait for at least one image inside the selector to be present and loaded
+                with allure.step("⏳ Waiting for images inside the campaign section to load..."):
+                    try:
+                        WebDriverWait(driver, 10).until(
+                            lambda d: d.execute_script("""
+                                const imgs = document.querySelectorAll(arguments[0] + ' img');
+                                return Array.from(imgs).length > 0 && Array.from(imgs).every(img => img.complete && img.naturalHeight !== 0);
+                            """, selector)
+                        )
+                        logging.info(f"✅ All images inside {selector} are loaded.")
+                    except Exception as e:
+                        logging.error(f"❌ Images inside {selector} did not load in time: {e}")
+                        allure.attach(f"Error: {e}", name="Image Load Error", attachment_type=allure.attachment_type.TEXT)
+                        return False
 
                 # Scroll to the element
                 with allure.step("📜 Scrolling to the element..."):
@@ -107,6 +122,7 @@ def verify_personalization_and_capture(
                         return False
 
                 # Capture screenshot
+                time.sleep(1)  # Wait for the scroll to complete
                 logging.info("📸 Taking screenshot...")
                 screenshot_handler = ScreenshotHandler(driver, screenshot_dir)
                 screenshot_path = os.path.join(screenshot_dir, f"{test_name}_attempt_{retries + 1}.png")
@@ -154,6 +170,7 @@ def verify_personalization_and_capture(
             except Exception as e:
                 # Capture screenshot
                 logging.info("📸 Taking screenshot...")
+                time.sleep(1)  # Wait for the scroll to complete
                 screenshot_handler = ScreenshotHandler(driver, screenshot_dir)
                 screenshot_path = os.path.join(screenshot_dir, f"{test_name}_attempt_{retries + 1}.png")
 

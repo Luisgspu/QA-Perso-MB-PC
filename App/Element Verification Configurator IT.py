@@ -8,6 +8,8 @@ import logging
 import time
 import os
 from ImageVerifier  import ImageVerifier
+from ConfigStarted import ConfiguratorStarted
+from ConfigCompleted import ConfiguratorCompleted
 
 class VerifyElements(unittest.TestCase):
 
@@ -64,22 +66,15 @@ class VerifyElements(unittest.TestCase):
         time.sleep(2)
         self.handle_cookies()
         time.sleep(2)
-        self.driver.get("https://www.mercedes-benz.it/passengercars/models/saloon/s-class/overview.html")
+        self.driver.get("https://www.mercedes-benz.it/passengercars/mercedes-benz-cars/car-configurator.html/motorization/CCci/IT/it/CLE-KLASSE/COUPE")
         time.sleep(2)
-        self.driver.get(url)
-        time.sleep(2)
-
-        self.image_verifier = ImageVerifier(self.driver)
         
-        # Call the image verifier here
-        result = self.image_verifier.verify_image(
-            selector="[data-component-name='hp-campaigns'] img",           # <-- update this selector
-            expected_path="/content/dam/hq/personalization/campaignmodule/",    # <-- update this expected path
-            test_name="test_verify_elements"
-        )
-        # Optionally, assert or log the result
-        self.assertTrue(result, "Expected image was not found on the page.")
+        ConfiguratorCompleted(self.driver).perform_configurator_actions()
         time.sleep(2)
+        
+        
+        
+
 
 
         
@@ -97,8 +92,8 @@ class VerifyElements(unittest.TestCase):
         
         
        
-            
         """
+    
         # Click on CC Summary
         try:
             shadow_host = self.driver.find_element(By.CSS_SELECTOR, 'body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > owcc-car-configurator')
@@ -125,6 +120,7 @@ class VerifyElements(unittest.TestCase):
             logging.info(f"📸 Screenshot saved to {screenshot_path}.")
         except Exception as e:
             logging.info("⚠️ Cookies were not accepted, elements could not be verified or clicked.")
+            
         """
 
 if __name__ == "__main__":

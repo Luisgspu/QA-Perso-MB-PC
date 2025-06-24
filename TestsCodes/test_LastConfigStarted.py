@@ -51,7 +51,7 @@ class LCStartedTest:
                 self.driver.get(self.urls['CONFIGURATOR'])
                 logging.info(f"🌍 Navigating to the configurator: {self.urls['CONFIGURATOR']}")
                 WebDriverWait(self.driver, 15).until(lambda driver: driver.execute_script("return document.readyState") == "complete")
-                time.sleep(3)
+                time.sleep(4)
 
             # Call the perform_configurator_actions function from ConfiguratorStarted
             with allure.step("✅ Performing configuration actions"):
@@ -68,6 +68,7 @@ class LCStartedTest:
                 self.driver.get(self.urls['HOME_PAGE'])
                 logging.info(f"🌍 Navigating back to: {self.urls['HOME_PAGE']}")
                 WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+                time.sleep(3)
                         
         except Exception as e:
             logging.error(f"❌ Error in configurator: {e}")        

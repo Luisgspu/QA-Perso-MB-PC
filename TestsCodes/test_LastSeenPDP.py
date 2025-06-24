@@ -81,6 +81,7 @@ class LSeenPDPTest:
                 self.driver.get(self.urls['HOME_PAGE'])
                 logging.info(f"🌍 Navigated back to: {self.urls['HOME_PAGE']}")
                 WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+                time.sleep(3)
         except Exception as e:
             with allure.step("Handle exception during Last Seen PDP test"):
                 logging.error(f"❌ Error during Last Seen PDP test: {e}")

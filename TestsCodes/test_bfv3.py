@@ -74,6 +74,7 @@ class BFV3Test:
             self.driver.get(self.urls['HOME_PAGE'])
             logging.info(f"🌍 Navigated back to: {self.urls['HOME_PAGE']}")
             WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+            time.sleep(2)
             
     @allure.step("Navigate to Salesforce URL")
     @allure.id(generate_test_uuid("navigate_to_salesforce"))  # UUID consistent for this step

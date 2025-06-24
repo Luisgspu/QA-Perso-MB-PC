@@ -27,7 +27,7 @@ class ConfiguratorStarted:
 
             # Access main <ul> inside navigation
             main_frame = shadow_root.find_element(By.CSS_SELECTOR,
-                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > nav > div > ul')
+                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > div > div > ul')
             ActionChains(self.driver).move_to_element(main_frame).perform()
             logging.info("✅ Hovered over the main frame (ul element).")
             main_frame.click()
@@ -36,7 +36,7 @@ class ConfiguratorStarted:
 
             # Find the last <li> in the nav
             second_child = shadow_root.find_element(By.CSS_SELECTOR,
-                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > nav > div > ul > li:nth-child(2)')
+                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > div > div > ul > li:nth-child(2)')
             logging.info("🔍 Found last child element (li:last-child).")
 
             # Hover over it
