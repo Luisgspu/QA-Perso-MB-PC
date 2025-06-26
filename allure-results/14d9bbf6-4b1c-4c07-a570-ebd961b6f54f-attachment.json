@@ -1,0 +1,44 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_belgium_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZnJfRlIiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmJlL2ZyP3VzZWNhc2VsaXZldGVzdD10cnVlIiwidXJsUmVmZXJyZXIiOiIiLCJjaGFubmVsIjoiV2ViIiwiYmVhY29uVmVyc2lvbiI6MTYsImNvbmZpZ1ZlcnNpb24iOiIyNDUifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6Ijg3OTgzNjMyNy4xNzUwNzUwOTUwIn0sImFub25JZCI6IjUxMGQxZGY4NDg0NGRkYTAifSwicGVyZm9ybWFuY2UiOnsic2RrUGFyc2VUaW1lIjoyfSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiMjQ4NzA2OTE4Njg4ODgxNjIifQ%3D%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "j5GPf",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser",
+                "campaignType": "Web",
+                "experienceId": "Torad",
+                "experienceName": "fr",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Trouvez un véhicule neuf en stock",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Retour à votre configuration",
+                    "dealerform_headline": "Découvrez-en plus chez votre distributeur Mercedes-Benz!",
+                    "experience": "Torad",
+                    "trackingBlock": false,
+                    "dealerform_label": "Faire une demande",
+                    "cc_headline": "Votre configuration finale vous attend.",
+                    "cc_copy": "Découvrez tous nos véhicules neufs disponibles en stock.",
+                    "primaryBtn": "Retour à votre configuration",
+                    "campaign": "j5GPf",
+                    "copy": "Votre configuration finale vous attend.",
+                    "image_alt_tag": "",
+                    "headline": "Finalisez votre configuration.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": null,
+                    "lastConfigurationDetails": null,
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

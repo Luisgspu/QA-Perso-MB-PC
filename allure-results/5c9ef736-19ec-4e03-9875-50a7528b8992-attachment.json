@@ -1,0 +1,64 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_germany_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwiY29udGVudFpvbmVzIjpbXSwidXJsIjoiaHR0cHM6Ly93d3cubWVyY2VkZXMtYmVuei5kZS8%2FdXNlY2FzZWxpdmV0ZXN0PXRydWUiLCJ1cmxSZWZlcnJlciI6IiIsImNoYW5uZWwiOiJXZWIiLCJiZWFjb25WZXJzaW9uIjoxNiwiY29uZmlnVmVyc2lvbiI6IjM0MyJ9LCJmbGFncyI6eyJwYWdlVmlldyI6dHJ1ZX0sInVzZXIiOnsiYXR0cmlidXRlcyI6eyJnYUNsaWVudElEIjoiODA0NTkyMzU1LjE3NTA3NTAzNTcifSwiYW5vbklkIjoiNGE4ZGMwZDlmMzYyNGVjYyJ9LCJwZXJmb3JtYW5jZSI6e30sImRlYnVnIjp7ImV4cGxhbmF0aW9ucyI6dHJ1ZX0sImNhdGFsb2ciOnt9LCJjb25zZW50cyI6W10sImFjY291bnQiOnt9LCJfdG9vbHNFdmVudExpbmtJZCI6IjM2MzEzMzA5NTM3NTk4NzI2In0%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "nQnxg",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign module",
+                "campaignType": "Web",
+                "experienceId": "zSOSz",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Verfügbare Fahrzeuge anzeigen",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Zurück zu Ihrer Konfiguration",
+                    "dealerform_headline": "Entdecken Sie mehr bei Ihrem Händler!",
+                    "experience": "zSOSz",
+                    "trackingBlock": false,
+                    "dealerform_label": "Mercedes-Benz Vertriebspartner kontaktieren",
+                    "cc_headline": "Entdecken Sie unsere aktuellen Angebote!",
+                    "cc_copy": "Der nächste Schritt zu Ihrem Mercedes-Benz.",
+                    "primaryBtn": "Zurück zu Ihrer Konfiguration",
+                    "campaign": "nQnxg",
+                    "copy": "Der nächste Schritt zu Ihrem Mercedes-Benz.",
+                    "image_alt_tag": "",
+                    "headline": "Ihre letzte Konfiguration wartet auf Sie.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": {
+                        "value": "{\"vehicleBaumuster\":\"2230231\",\"vehiclecode\":\"w223\",\"lastStep\":\"multimedia_multimedia\",\"onlinecode\":null}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"2230231\",\"vehiclecode\":\"w223\",\"lastStep\":\"summary\",\"onlinecode\":\"MX2CEK25\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

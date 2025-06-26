@@ -1,0 +1,32 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_united_kingdom_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZW5fR0IiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmNvLnVrLz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNjAifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjE5NTQyMDkwMjUuMTc1MDc1MDIwNyJ9LCJhbm9uSWQiOiI2NjZiYjA5NzA1NmVmZWRkIn0sInBlcmZvcm1hbmNlIjp7fSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiNTY4MDk3OTcxNjY1ODgyMyJ9",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Control",
+                "templateNames": [
+                    "Always-on - last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "trackingBlock": false,
+                    "primaryBtn": "Build your car",
+                    "campaign": "HFRze",
+                    "copy": "Return to your configuration.",
+                    "experience": "yhYVP",
+                    "headline": "Take a step towards your own Mercedes-Benz.",
+                    "userGroup": "Control"
+                }
+            }
+        ]
+    }
+}

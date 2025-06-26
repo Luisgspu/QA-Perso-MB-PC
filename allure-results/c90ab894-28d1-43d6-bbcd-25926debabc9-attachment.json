@@ -1,0 +1,64 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_switzerland_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiaXRfQ0giLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmNoL2l0P3VzZWNhc2VsaXZldGVzdD10cnVlIiwidXJsUmVmZXJyZXIiOiIiLCJjaGFubmVsIjoiV2ViIiwiYmVhY29uVmVyc2lvbiI6MTYsImNvbmZpZ1ZlcnNpb24iOiI2MyJ9LCJmbGFncyI6eyJwYWdlVmlldyI6dHJ1ZX0sInVzZXIiOnsiYXR0cmlidXRlcyI6eyJnYUNsaWVudElEIjoiNjUxNDA1MjEwLjE3NTA3NTA2MjEifSwiYW5vbklkIjoiZDg2MTU4OWIyYmVhNDUzMiJ9LCJwZXJmb3JtYW5jZSI6eyJzZGtQYXJzZVRpbWUiOjJ9LCJkZWJ1ZyI6eyJleHBsYW5hdGlvbnMiOnRydWV9LCJjYXRhbG9nIjp7fSwiY29uc2VudHMiOltdLCJhY2NvdW50Ijp7fSwiX3Rvb2xzRXZlbnRMaW5rSWQiOiIzMzg3MjczODg0Mzg1ODM2MyJ9",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "vHHfM",
+                "experienceName": "CH_it",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Mostrare vetture disponibili",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Tornare alla configurazione",
+                    "dealerform_headline": "Scopri di più dalla concessionaria",
+                    "experience": "vHHfM",
+                    "trackingBlock": false,
+                    "dealerform_label": "Contatta il tuo concessionaria.",
+                    "cc_headline": "Scopri le nostre offerte attuali.",
+                    "cc_copy": "Il prossimo passo verso la tua Mercedes-Benz.",
+                    "primaryBtn": "Tornare alla configurazione",
+                    "campaign": "HFRze",
+                    "copy": "Il prossimo passo verso la tua Mercedes-Benz.",
+                    "image_alt_tag": "",
+                    "headline": "La tua ultima configurazione ti sta aspettando",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": {
+                        "value": "{\"vehicleBaumuster\":\"2971441\",\"vehiclecode\":\"v297\",\"lastStep\":\"multimedia_multimedia\",\"onlinecode\":null}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"2971441\",\"vehiclecode\":\"v297\",\"lastStep\":\"summary\",\"onlinecode\":\"MEDL9XEP\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

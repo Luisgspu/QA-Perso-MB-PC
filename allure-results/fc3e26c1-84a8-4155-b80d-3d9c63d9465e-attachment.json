@@ -1,0 +1,64 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_slovakia_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoic2tfU0siLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LnNrLz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNjQifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjEwNTYzNjA0NzQuMTc1MDc1MTA3NSJ9LCJhbm9uSWQiOiJiY2U2MjE0ZjkwMGZlMWJiIn0sInBlcmZvcm1hbmNlIjp7fSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiMjUwMDU4Mjg2Nzc1NzYyMDMifQ%3D%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Objaviť ponuky",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Dokončiť konfiguráciu",
+                    "dealerform_headline": "Zistite viac u autorizovaného predajcu Mercedes-Benz!",
+                    "experience": "yhYVP",
+                    "trackingBlock": false,
+                    "dealerform_label": "Kontaktovať predajcu",
+                    "cc_headline": "Vyhľadajte dostupné vozidlá v platforme Online showroom",
+                    "cc_copy": "Urobte ďalší krok smerom k svojmu vozidlu Mercedes-Benz",
+                    "primaryBtn": "Dokončiť konfiguráciu",
+                    "campaign": "HFRze",
+                    "copy": "Urobte ďalší krok smerom k svojmu vozidlu Mercedes-Benz",
+                    "image_alt_tag": "",
+                    "headline": "Čaká na vás vaša posledná konfigurácia",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": {
+                        "value": "{\"vehicleBaumuster\":\"1743131\",\"vehiclecode\":\"c174\",\"lastStep\":\"multimedia_multimedia\",\"onlinecode\":null}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"1743131\",\"vehiclecode\":\"c174\",\"lastStep\":\"summary\",\"onlinecode\":\"MBNS22EJ\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

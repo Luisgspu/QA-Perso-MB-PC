@@ -1,0 +1,64 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_switzerland_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZGVfQ0giLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmNoL2RlP3VzZWNhc2VsaXZldGVzdD10cnVlIiwidXJsUmVmZXJyZXIiOiIiLCJjaGFubmVsIjoiV2ViIiwiYmVhY29uVmVyc2lvbiI6MTYsImNvbmZpZ1ZlcnNpb24iOiI2MyJ9LCJmbGFncyI6eyJwYWdlVmlldyI6dHJ1ZX0sInVzZXIiOnsiYXR0cmlidXRlcyI6eyJnYUNsaWVudElEIjoiNjczMjcyOTEzLjE3NTA3NTA2MTkifSwiYW5vbklkIjoiMmY3NTliYmY5Y2Y4NmViMyJ9LCJwZXJmb3JtYW5jZSI6e30sImRlYnVnIjp7ImV4cGxhbmF0aW9ucyI6dHJ1ZX0sImNhdGFsb2ciOnt9LCJjb25zZW50cyI6W10sImFjY291bnQiOnt9LCJfdG9vbHNFdmVudExpbmtJZCI6IjUxMjUwMzkxMTQ2NjE2NzMifQ%3D%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "CH_de",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Verfügbare Fahrzeuge anzeigen",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Zurück zu Ihrer Konfiguration",
+                    "dealerform_headline": "Entdecken Sie mehr bei Ihrem Händler!",
+                    "experience": "yhYVP",
+                    "trackingBlock": false,
+                    "dealerform_label": "Ihr Mercedes-Benz Händler kontaktieren",
+                    "cc_headline": "Entdecken Sie unsere aktuellen Angebote.",
+                    "cc_copy": "Der nächste Schritt zu Ihrem Mercedes-Benz.",
+                    "primaryBtn": "Zurück zu Ihrer Konfiguration",
+                    "campaign": "HFRze",
+                    "copy": "Der nächste Schritt zu Ihrem Mercedes-Benz.",
+                    "image_alt_tag": "",
+                    "headline": "Ihre letzte Konfiguration wartet auf Sie.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": {
+                        "value": "{\"vehicleBaumuster\":\"2971441\",\"vehiclecode\":\"v297\",\"lastStep\":\"multimedia_multimedia\",\"onlinecode\":null}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"2971441\",\"vehiclecode\":\"v297\",\"lastStep\":\"summary\",\"onlinecode\":\"M24RM7TY\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

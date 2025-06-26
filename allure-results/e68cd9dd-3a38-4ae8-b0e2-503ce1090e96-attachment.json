@@ -1,0 +1,64 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_romania_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoicm9fUk8iLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LnJvLz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNjkifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjE4MDcyNzg0NzQuMTc1MDc1MTAzMSJ9LCJhbm9uSWQiOiJmYTc2MDAwZDA4ZTQ3NDk1In0sInBlcmZvcm1hbmNlIjp7InNka1BhcnNlVGltZSI6Miwic2RrTG9hZFRpbWUiOjR9LCJkZWJ1ZyI6eyJleHBsYW5hdGlvbnMiOnRydWV9LCJjYXRhbG9nIjp7fSwiY29uc2VudHMiOltdLCJhY2NvdW50Ijp7fSwiX3Rvb2xzRXZlbnRMaW5rSWQiOiIyMjk2OTU3MDk0OTY4NTQ4In0%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Descoperă ofertele",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Întoarce-te la configurația ta",
+                    "dealerform_headline": "Descoperă mai multe la partenerul tău Mercedes-Benz!",
+                    "experience": "yhYVP",
+                    "trackingBlock": false,
+                    "dealerform_label": "Solicită oferta",
+                    "cc_headline": "Descoperă ofertele din Showroom-ul Online.",
+                    "cc_copy": "Fă primul pas către propriul tău Mercedes-Benz.",
+                    "primaryBtn": "Întoarce-te la configurarea ta",
+                    "campaign": "HFRze",
+                    "copy": "Fă primul pas către propriul tău Mercedes-Benz.",
+                    "image_alt_tag": "",
+                    "headline": "Ultima ta configurație te așteaptă.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": {
+                        "value": "{\"vehicleBaumuster\":\"1743131\",\"vehiclecode\":\"c174\",\"lastStep\":\"multimedia_multimedia\",\"onlinecode\":null}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"1743131\",\"vehiclecode\":\"c174\",\"lastStep\":\"summary\",\"onlinecode\":\"M94ETAKJ\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_luxembourg_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZnJfTFUiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56Lmx1L2ZyP3VzZWNhc2VsaXZldGVzdD10cnVlIiwidXJsUmVmZXJyZXIiOiIiLCJjaGFubmVsIjoiV2ViIiwiYmVhY29uVmVyc2lvbiI6MTYsImNvbmZpZ1ZlcnNpb24iOiI1NyJ9LCJmbGFncyI6eyJwYWdlVmlldyI6dHJ1ZX0sInVzZXIiOnsiYXR0cmlidXRlcyI6eyJnYUNsaWVudElEIjoiNDI3MTY4NDQ3LjE3NTA3NTExMzQifSwiYW5vbklkIjoiNGEyNzc4NDQ0MjI3NTU0MSJ9LCJwZXJmb3JtYW5jZSI6e30sImRlYnVnIjp7ImV4cGxhbmF0aW9ucyI6dHJ1ZX0sImNhdGFsb2ciOnt9LCJjb25zZW50cyI6W10sImFjY291bnQiOnt9LCJfdG9vbHNFdmVudExpbmtJZCI6Ijc1NTE5MDkzMzEzNjM1OTgifQ%3D%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "LU_fr",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Trouvez un véhicule neuf en stock",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Retour à votre configuration",
+                    "dealerform_headline": "Découvrez-en plus chez votre concessionnaire Mercedes-Benz!",
+                    "experience": "yhYVP",
+                    "trackingBlock": false,
+                    "dealerform_label": "Faire une demande",
+                    "cc_headline": "Votre configuration finale vous attend.",
+                    "cc_copy": "Découvrez tous nos véhicules neufs disponibles en stock.",
+                    "primaryBtn": "Retour à votre configuration",
+                    "campaign": "HFRze",
+                    "copy": "Votre configuration finale vous attend.",
+                    "image_alt_tag": "",
+                    "headline": "Finalisez votre configuration.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": null,
+                    "lastConfigurationDetails": null,
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

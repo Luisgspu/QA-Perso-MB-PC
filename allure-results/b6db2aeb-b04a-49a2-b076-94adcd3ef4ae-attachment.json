@@ -1,0 +1,54 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_poland_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoicGxfUEwiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LnBsLz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNjcifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjI4MTg2OTc4NC4xNzUwNzUwOTkwIn0sImFub25JZCI6IjU1NDMzNTNiOTM1MDIwNDQifSwicGVyZm9ybWFuY2UiOnsic2RrUGFyc2VUaW1lIjoyfSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiNzk0Njg0NTI3ODcwNzQ3MSJ9",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Znajdź dostępne pojazdy",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Powróć do konfiguracji",
+                    "dealerform_headline": "Odkryj więcej u swojego dealera Mercedes-Benz!",
+                    "experience": "yhYVP",
+                    "trackingBlock": false,
+                    "dealerform_label": "Otrzymaj ofertę",
+                    "cc_headline": "Odkryj dostępne pojazdy.",
+                    "cc_copy": "Zrób krok w kierunku Twojego modelu Mercedes-Benz.",
+                    "primaryBtn": "Powróć do konfiguracji",
+                    "campaign": "HFRze",
+                    "copy": "Zrób krok w kierunku swojego modelu Mercedes-Benz.",
+                    "image_alt_tag": "",
+                    "headline": "Twoja ostatnia konfiguracja czeka na Ciebie.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": null,
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"1743131\",\"vehiclecode\":\"c174\",\"lastStep\":\"summary\",\"onlinecode\":\"MGDVZWTS\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    },
+                    "currentProduct": null
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,1 @@
+Campaign name substring set to: last-configuration

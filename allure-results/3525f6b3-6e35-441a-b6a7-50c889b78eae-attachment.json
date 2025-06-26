@@ -1,0 +1,45 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_spain_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZXNfRVMiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmVzLz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNTgifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjEwNzU3NjI1NjYuMTc1MDc1MzY1OCJ9LCJhbm9uSWQiOiI1YmRmODFhYmU4NTFmYjk3In0sInBlcmZvcm1hbmNlIjp7fSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiNzgwOTU0NTU4MDMzNTk4MyJ9",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser",
+                "campaignType": "Web",
+                "experienceId": "yhYVP",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "trackingBlock": false,
+                    "primaryBtn": "Configúralo",
+                    "campaign": "HFRze",
+                    "copy": "Tu última configuración te está esperando.",
+                    "experience": "yhYVP",
+                    "headline": "Da un paso hacia tu propio Mercedes-Benz.",
+                    "userGroup": "Test",
+                    "lastConfigurationCanceled": null,
+                    "currentProduct": null,
+                    "lastConfigurationDetails": {
+                        "value": "{\"vehicleBaumuster\":\"2470121\",\"vehiclecode\":\"w247\",\"lastStep\":\"summary\",\"onlinecode\":\"MKGNYR2C\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

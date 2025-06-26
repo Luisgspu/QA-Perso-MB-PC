@@ -1,0 +1,41 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_luxembourg_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZGVfTFUiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56Lmx1L2RlP3VzZWNhc2VsaXZldGVzdD10cnVlIiwidXJsUmVmZXJyZXIiOiIiLCJjaGFubmVsIjoiV2ViIiwiYmVhY29uVmVyc2lvbiI6MTYsImNvbmZpZ1ZlcnNpb24iOiI1NyJ9LCJmbGFncyI6eyJwYWdlVmlldyI6dHJ1ZX0sInVzZXIiOnsiYXR0cmlidXRlcyI6eyJnYUNsaWVudElEIjoiMTA0OTAyODAwMS4xNzUwNzUwODM1In0sImFub25JZCI6IjE1MzEyNjllODQ4N2ZkN2UifSwicGVyZm9ybWFuY2UiOnt9LCJkZWJ1ZyI6eyJleHBsYW5hdGlvbnMiOnRydWV9LCJjYXRhbG9nIjp7fSwiY29uc2VudHMiOltdLCJhY2NvdW50Ijp7fSwiX3Rvb2xzRXZlbnRMaW5rSWQiOiI3NTA4NjA0NTEzMzI2MTc4In0%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "HFRze",
+                "campaignName": "last-configuration | private vans and all car models | home | simple-teaser and campaign-module",
+                "campaignType": "Web",
+                "experienceId": "AJgAH",
+                "experienceName": "LU_de",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Control",
+                "templateNames": [
+                    "Always-on - online shop and last-configuration - private vans and cars - simple-teaser and campaign-module - home"
+                ],
+                "payload": {
+                    "onlineShop_label": "Verfügbare Fahrzeuge anzeigen",
+                    "split_content_by_config_type": true,
+                    "overwrite_simple_teaser": true,
+                    "cc_primaryBtn": "Zurück zu Ihrer Konfiguration",
+                    "dealerform_headline": "Entdecken Sie mehr bei Ihrem Mercedes-Benz Partner!",
+                    "experience": "AJgAH",
+                    "trackingBlock": false,
+                    "dealerform_label": "Anfrage stellen",
+                    "cc_headline": "Entdecken Sie unsere aktuellen Angebote!",
+                    "cc_copy": "Der nächste Schritt zu Ihrem Mercedes-Benz.",
+                    "primaryBtn": "Zurück zu Ihrer Konfiguration",
+                    "campaign": "HFRze",
+                    "copy": "Der nächste Schritt zu Ihrem Mercedes-Benz.",
+                    "image_alt_tag": "",
+                    "headline": "Ihre letzte Konfiguration wartet auf Sie.",
+                    "userGroup": "Control"
+                }
+            }
+        ]
+    }
+}

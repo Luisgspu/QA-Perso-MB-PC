@@ -1,0 +1,2 @@
+[1m[31mERROR   [0m root:QAAppAllure.py:165 ❌ Failed to accept cookies.
+[1m[31mERROR   [0m root:QAAppAllure.py:165 ❌ Failed to accept cookies.
