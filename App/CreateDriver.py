@@ -6,7 +6,7 @@ import time
 
 def build_chrome_options():
     options = webdriver.ChromeOptions()
-    #options.add_argument("--headless") # Use new headless mode for better performance  
+    options.add_argument("--headless") # Use new headless mode for better performance  
     options.add_argument("--disable-gpu") 
     options.add_argument("--enable-webgl")
     options.add_argument("--incognito")
