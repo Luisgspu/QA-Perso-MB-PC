@@ -21,7 +21,7 @@ class ConfiguratorStarted:
 
             # Locate shadow host and expand root
             shadow_host = self.driver.find_element(By.CSS_SELECTOR,
-                'body > div.root.responsivegrid.owc-content-container > div > div.responsivegrid.ng-content-root.aem-GridColumn.aem-GridColumn--default--12 > div > owcc-car-configurator')
+                'body > div.root.responsivegrid.owc-content-container > div > main > div > owcc-car-configurator')
             shadow_root = self.expand_shadow_element(shadow_host)
             logging.info("✅ Shadow DOM expanded.")
 
