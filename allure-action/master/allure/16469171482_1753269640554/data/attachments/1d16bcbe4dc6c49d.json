@@ -1,0 +1,65 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_italy_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiaXRfSVQiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56Lml0Lz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNjgifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjEwNDMxMjU1NzMuMTc1MzI2OTYyMSJ9LCJhbm9uSWQiOiI5YzhiNDU1MzczYzI0NjU5In0sInBlcmZvcm1hbmNlIjp7fSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiNTIxMjY0NzM3MDE0NjQ0NCJ9",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "iuPKH",
+                "campaignName": "best-fitting-vehicle | all models | home | simple-teaser, campaign-module and stage",
+                "campaignType": "Web",
+                "experienceId": "GOGwL",
+                "experienceName": "Target ",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - best-fitting-vehicle-combined - home"
+                ],
+                "payload": {
+                    "phase3_copy": "Trova un'auto in pronta consegna o richiedi un test drive",
+                    "experience": "GOGwL",
+                    "phase3_primaryBtn": "Scegli in pronta consegna",
+                    "activate_phase2": true,
+                    "overwrite_content": false,
+                    "trackingBlock": false,
+                    "activate_phase1": true,
+                    "activate_phase3": true,
+                    "phase2_copy": "Scopri le auto disponibili nello Showroom Online",
+                    "target_group": "target",
+                    "userGroup": "Test",
+                    "activate_cars": true,
+                    "block_stage": false,
+                    "activate_vans": false,
+                    "phase1_primaryBtn": "Configura adesso",
+                    "phase1_copy": "Configura l'auto dei tuoi sogni.",
+                    "phase3_secondaryBtn": "Richiedi Test Drive",
+                    "highest_affinity": {
+                        "car": "1183",
+                        "van": null
+                    },
+                    "phase2_secondaryBtn": "Scopri di più",
+                    "phase1_secondaryBtn": "Scopri di più",
+                    "campaign": "iuPKH",
+                    "phase2_primaryBtn": "Scegli in pronta consegna",
+                    "onlineShop_label": "",
+                    "segments": {
+                        "van": {
+                            "config_started": false,
+                            "config_completed": false,
+                            "testdrive_started": false
+                        },
+                        "car": {
+                            "config_started": false,
+                            "config_completed": false,
+                            "testdrive_started": false
+                        }
+                    },
+                    "image_alt_tag": "",
+                    "vehicles_overwrite": null
+                }
+            }
+        ]
+    }
+}

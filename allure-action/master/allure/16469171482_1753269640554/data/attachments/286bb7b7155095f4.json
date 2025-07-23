@@ -1,0 +1,54 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_austria_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZGVfQVQiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmF0Lz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNzUifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjE1NzkyODk1MjcuMTc1MzI2OTU4MCJ9LCJhbm9uSWQiOiI4NjBjNmMzMjcyNDNiZDAwIn0sInBlcmZvcm1hbmNlIjp7fSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiODA4NTEzODgzMjY2MjMxOSJ9",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "ueL6T",
+                "campaignName": "best-fitting-vehicle | all models | home | simple-teaser and stage",
+                "campaignType": "Web",
+                "experienceId": "Aet9h",
+                "experienceName": "Control Group",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always-on - best-fitting-vehicle-combined - home"
+                ],
+                "payload": {
+                    "phase3_copy": "Configure the vehicle of your dreams",
+                    "experience": "Aet9h",
+                    "phase3_primaryBtn": "Go to configurator",
+                    "activate_phase2": true,
+                    "overwrite_content": false,
+                    "trackingBlock": false,
+                    "activate_phase1": true,
+                    "activate_phase3": true,
+                    "phase2_copy": "Configure the vehicle of your dreams",
+                    "target_group": "control",
+                    "userGroup": "Test",
+                    "activate_cars": true,
+                    "block_stage": true,
+                    "activate_vans": false,
+                    "phase1_primaryBtn": "Go to configurator",
+                    "phase1_copy": "Configure the vehicle of your dreams",
+                    "phase3_secondaryBtn": "Learn more",
+                    "highest_affinity": {
+                        "car": null,
+                        "van": null
+                    },
+                    "phase2_secondaryBtn": "Learn more",
+                    "phase1_secondaryBtn": "Learn more",
+                    "campaign": "ueL6T",
+                    "phase2_primaryBtn": "Go to configurator",
+                    "onlineShop_label": "",
+                    "segments": null,
+                    "image_alt_tag": "",
+                    "vehicles_overwrite": null
+                }
+            }
+        ]
+    }
+}
