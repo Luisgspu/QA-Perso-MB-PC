@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","22947","test_run[test_case0]","AT/de","Wed Jul 23 11:01:35 GMT 2025","failed","Wed Jul 23 11:01:58 GMT 2025","C118-fl - CLA (COUPE)","Last Configuration Completed","",""
