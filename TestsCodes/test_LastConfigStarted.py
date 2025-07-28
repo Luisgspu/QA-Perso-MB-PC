@@ -58,6 +58,7 @@ class LCStartedTest:
                 try:
                     configurator.perform_configurator_actions()
                     logging.info("✅ Successfully performed configuration actions.")
+                    time.sleep(4)
                 except Exception as e:
                     logging.error(f"❌ Error performing configuration actions: {e}")
                     allure.attach(f"Error: {e}", name="Configuration Actions Error", attachment_type=allure.attachment_type.TEXT)

@@ -27,7 +27,7 @@ class ConfiguratorStarted:
 
             # Access main <ul> inside navigation
             main_frame = shadow_root.find_element(By.CSS_SELECTOR,
-                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > div > div > ul')
+                '#cc-app-container-main > div.cc-app-container__main-frame.cc-grid-container > div.cc-app-container__navigation.ng-star-inserted > cc-navigation > div > nav > ul')
             ActionChains(self.driver).move_to_element(main_frame).perform()
             logging.info("✅ Hovered over the main frame (ul element).")
             main_frame.click()
@@ -53,7 +53,7 @@ class ConfiguratorStarted:
                 self.driver.execute_script("arguments[0].click();", second_child)
                 logging.info("✅ Fallback click on <li> using JavaScript.")
 
-            time.sleep(2)
+            time.sleep(4)
 
         except Exception as e:
             logging.error(f"❌ Error while performing configurator actions: {e}")
