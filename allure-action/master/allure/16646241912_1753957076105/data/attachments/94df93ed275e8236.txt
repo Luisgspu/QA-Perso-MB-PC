@@ -1,0 +1,1 @@
+ERROR    root:QAAppAllure.py:165 ❌ Failed to accept cookies.

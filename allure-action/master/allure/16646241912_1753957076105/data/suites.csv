@@ -1,0 +1,22 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","34449","test_run[test_case4]","AT/de","Thu Jul 31 10:15:43 GMT 2025","passed","Thu Jul 31 10:16:18 GMT 2025","H247-fl - GLA (SUV)","Last Configuration Completed","",""
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","51678","test_run[test_case2]","AT/de","Thu Jul 31 10:15:05 GMT 2025","passed","Thu Jul 31 10:15:57 GMT 2025","H247-fl - GLA (SUV)","BFV3","",""
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","22360","test_run[test_case5]","AT/de","Thu Jul 31 10:17:27 GMT 2025","failed","Thu Jul 31 10:17:50 GMT 2025","H247-fl - GLA (SUV)","Last Seen SRP","",""
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","44649","test_run[test_case1]","AT/de","Thu Jul 31 10:15:16 GMT 2025","passed","Thu Jul 31 10:16:01 GMT 2025","H247-fl - GLA (SUV)","BFV2","",""
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","37680","test_run[test_case0]","AT/de","Thu Jul 31 10:15:05 GMT 2025","passed","Thu Jul 31 10:15:43 GMT 2025","H247-fl - GLA (SUV)","BFV1","",""
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","40913","test_run[test_case3]","AT/de","Thu Jul 31 10:15:05 GMT 2025","passed","Thu Jul 31 10:15:46 GMT 2025","H247-fl - GLA (SUV)","Last Configuration Started","",""
+"
+Runs a test for each test case, either manually defined or dynamically fetched.
+","39786","test_run[test_case6]","AT/de","Thu Jul 31 10:15:57 GMT 2025","passed","Thu Jul 31 10:16:37 GMT 2025","H247-fl - GLA (SUV)","Last Seen PDP","",""

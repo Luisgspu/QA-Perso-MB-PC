@@ -1,0 +1,51 @@
+{
+    "url": "https://daimleragemea.germany-2.evergage.com/api2/event/mb_austria_prod?event=eyJhY3Rpb24iOiJIb21lIFBhZ2UiLCJpdGVtQWN0aW9uIjpudWxsLCJzb3VyY2UiOnsicGFnZVR5cGUiOiJob21lIiwibG9jYWxlIjoiZGVfQVQiLCJjb250ZW50Wm9uZXMiOltdLCJ1cmwiOiJodHRwczovL3d3dy5tZXJjZWRlcy1iZW56LmF0Lz91c2VjYXNlbGl2ZXRlc3Q9dHJ1ZSIsInVybFJlZmVycmVyIjoiIiwiY2hhbm5lbCI6IldlYiIsImJlYWNvblZlcnNpb24iOjE2LCJjb25maWdWZXJzaW9uIjoiNzgifSwiZmxhZ3MiOnsicGFnZVZpZXciOnRydWV9LCJ1c2VyIjp7ImF0dHJpYnV0ZXMiOnsiZ2FDbGllbnRJRCI6IjEwNTkwNjYyNzUuMTc1Mzk1Njk2NCJ9LCJhbm9uSWQiOiJiMjcxZDg4NWUyYjQ2YWQ4In0sInBlcmZvcm1hbmNlIjp7fSwiZGVidWciOnsiZXhwbGFuYXRpb25zIjp0cnVlfSwiY2F0YWxvZyI6e30sImNvbnNlbnRzIjpbXSwiYWNjb3VudCI6e30sIl90b29sc0V2ZW50TGlua0lkIjoiMDU3NTYyNTQ1MTgwMDAwNDgifQ%3D%3D",
+    "status": 200,
+    "body": {
+        "campaignResponses": [
+            {
+                "type": "ng",
+                "campaignId": "CQkLW",
+                "campaignName": "dcp-last-seen-pdp-srp | all available models | home | simple-teaser",
+                "campaignType": "Web",
+                "experienceId": "UApHl",
+                "experienceName": "Experience 1",
+                "experienceSourceCode": "",
+                "state": "Published",
+                "campaignJavascriptContent": null,
+                "userGroup": "Default",
+                "templateNames": [
+                    "Always on - dcp-last-seen-pdp-srp - simple-teaser and campaign-module"
+                ],
+                "payload": {
+                    "apikey": "b448a559-eb9e-4396-812f-25b45f84c63a",
+                    "pdp_headline": "Ihr Mercedes-Benz wartet auf Sie!",
+                    "srp_cta_label": "Zurück zu den Angeboten",
+                    "experience": "UApHl",
+                    "trackingBlock": false,
+                    "srp_headline": "Entdecken Sie sofort verfügbare Fahrzeuge!",
+                    "pdp_subline": "Schließen Sie hier Ihre letzte Fahrzeugwahl ab.",
+                    "campaign": "CQkLW",
+                    "srp_subline": "Noch keinen passenden Mercedes-Benz gefunden?",
+                    "td_cta_label": "Probefahrt buchen",
+                    "pdp_cta_label": "Zurück zum Angebot",
+                    "image_alt_tag": "",
+                    "userGroup": "Test",
+                    "lastSRPModelFilter": null,
+                    "currentProduct": null,
+                    "lastSeenPDP": {
+                        "value": "{\"dcpProductId\":\"GLA-250-e-mit-EQ-Hybrid-Technologie-Osterreich-Edition_0555702138_AT_354ae2f5\",\"dcpProductVehicle\":\"GLA 250 e mit EQ Hybrid Technologie Österreich-Edition\",\"dcpProductClass\":\"gla-class\",\"dcpProductbm\":\"2477\"}",
+                        "metadata": {
+                            "lastUpdated": null,
+                            "provider": null,
+                            "origin": "Web",
+                            "gearId": null,
+                            "lastVerified": null,
+                            "classification": null
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
