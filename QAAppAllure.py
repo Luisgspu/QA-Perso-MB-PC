@@ -213,13 +213,18 @@ def run_test(driver, test_name, market_code, model_code, model_name, body_type, 
 manual_test_cases = [
     
     
+                {"test_name": "BFV1", "market_code": "AT/de", "model_code": "H247-fl"},
+                {"test_name": "BFV2", "market_code": "AT/de", "model_code": "H247-fl"},
+                {"test_name": "BFV3", "market_code": "AT/de", "model_code": "H247-fl"},
+                {"test_name": "Last Configuration Started", "market_code": "AT/de", "model_code": "H247-fl"},
+                {"test_name": "Last Configuration Completed", "market_code": "AT/de", "model_code": "H247-fl"},
+                {"test_name": "Last Seen SRP", "market_code": "AT/de", "model_code": "H247-fl"},
+                {"test_name": "Last Seen PDP", "market_code": "AT/de", "model_code": "H247-fl"},
+                
 
-    {"test_name": "BFV2", "market_code": "AT/de", "model_code": "X243-fl"},
 
 
   
-
-
     
 ]
 
